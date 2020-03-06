@@ -16,8 +16,8 @@ CREATE TABLE menu (
 );
 
 CREATE TABLE orders (
-  user_id INTEGER REFERENCES users.id ON DELETE CASCADE,
-  order_id INTEGER REFERENCES menu.id ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  order_id INTEGER REFERENCES menu(id) ON DELETE CASCADE,
 
   order_status BOOLEAN DEFAULT FALSE,
   order_begin TIMESTAMP,

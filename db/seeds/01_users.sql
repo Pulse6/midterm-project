@@ -16,6 +16,7 @@ INSERT INTO users (
 
     'canada',
     'street',
+    'city',
     'ON',
     '123456'
     );
@@ -37,6 +38,7 @@ INSERT INTO users (
 
     'china',
     'street',
+     'city',
     'CH',
     '654321'
     );

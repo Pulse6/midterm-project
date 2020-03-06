@@ -1,4 +1,5 @@
 -- -- Widgets table seeds here (Example)
--- INSERT INTO widgets (name, user_id) VALUES ('Sprockets', 1);
--- INSERT INTO widgets (name, user_id) VALUES ('Chains', 2);
--- INSERT INTO widgets (name, user_id) VALUES ('Bearings', 2);
+
+INSERT INTO menu (name, description, food_category, item_img, price) VALUES
+('Fish -N- Chips', "The best fried halibut you'll ever have. Made to oder by S.Gamgee, you can't say no to that!", 'fish', 'fish-and-chips.jpg', 1999),
+('Beef Wellington', "Beef fillet, surrounded in love and baked to perfection in Fatty Bolger approved puff pastry. This'll be sure to put a smile on your Old Gaffers face", 'beef', 'image', 2999);

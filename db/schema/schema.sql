@@ -21,7 +21,7 @@ CREATE TABLE menu (
 
   item_img TEXT NOT NULL,
 
-  price SMALLINT NOT NULL,
+  price SMALLINT NOT NULL
 );
 
 CREATE TABLE orders (
@@ -31,5 +31,5 @@ CREATE TABLE orders (
   order_status BOOLEAN DEFAULT FALSE,
   order_begin TIMESTAMP,
   order_end TIMESTAMP,
-  order_date DATE NOT NULL,
+  order_date DATE NOT NULL
 );

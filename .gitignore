@@ -1,5 +1,5 @@
 node_modules/
 public/styles
-# .env
+.env
 *.log
 *.sqlite3

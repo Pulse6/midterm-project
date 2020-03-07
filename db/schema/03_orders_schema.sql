@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS orders CASCADE;
+
+CREATE TABLE orders (
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  order_id INTEGER REFERENCES menu(id) ON DELETE CASCADE,
+
+  order_status BOOLEAN DEFAULT FALSE,
+  order_begin TIMESTAMP,
+  order_end TIMESTAMP,
+  order_date DATE NOT NULL
+);

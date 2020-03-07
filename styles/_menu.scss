@@ -2,12 +2,22 @@ menu {
   color: rgb(228, 204, 70);
   // height: 100vh;
   width: 100%;
-  display: grid; // new
-  grid-template-columns: 1fr 1fr 1fr; // new
-  grid-gap: 40px; // new
+
+  display: grid; // new -- all these "new" css rules will make it so that no matter what img is put in, it'll be the same size.
+  grid-template-columns: repeat(3, 1fr); // new -- change this if you want more than 3 menu-items in a row
+  grid-gap: 40px; // new -- gap between each menu-item
 
   .menu-item {
-    margin: 0 auto;
+    display: grid; // new
+  }
+
+  .menu-img-container {
+    width: 100%; // new
+    overflow:hidden; // new -- if an image is too large, makes it so it doesn't "overflow" out of the box
+  }
+
+  .menu-img-container img {
+    width: 100%; // new -- makes sure the img is always 100% of the size of it's container
   }
 
   h2 {

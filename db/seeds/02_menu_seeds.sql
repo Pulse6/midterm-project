@@ -13,3 +13,6 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
     'image',
     2999
   );
+
+INSERT INTO orders (user_id, menu_id, item_name, amount)
+VALUES (1, 1, 'Fish -N- Chips', 1);

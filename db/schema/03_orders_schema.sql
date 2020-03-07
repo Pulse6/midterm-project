@@ -2,10 +2,13 @@ DROP TABLE IF EXISTS orders CASCADE;
 
 CREATE TABLE orders (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  order_id INTEGER REFERENCES menu(id) ON DELETE CASCADE,
+  menu_id INTEGER REFERENCES menu(id) ON DELETE CASCADE,
 
   order_status BOOLEAN DEFAULT FALSE,
-  order_begin TIMESTAMP,
+  order_begin TIME DEFAULT CURRENT_TIME(2),
   order_end TIMESTAMP,
-  order_date DATE NOT NULL
+  order_date DATE NOT NULL DEFAULT NOW(),
+
+  item_name VARCHAR(255),
+  amount VARCHAR(225) DEFAULT 0
 );

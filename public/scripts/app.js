@@ -36,26 +36,63 @@ $(() => {
     }
   });
 
-/* ———————————————————— GET MENU FROM SQL ———————————————————— */
+  /* ———————————————————— GET MENU FROM SQL ———————————————————— */
   $.ajax({
     method: "GET",
     url: "/api/menu"
   }).done((res) => {
     console.log(res)
     for (food of res.menu) {
-      const wrapper = $("<div class='menu-item'>")
-        .append($("<div class='menu-img-container'>").html(`<img src="https://peterspicksblog.files.wordpress.com/2017/03/lotr-rabbit-stew.jpg" />`))
-        .append($("<div class='menu-content'>").html(`
-        <h2 class="menu-title">${food.name + " - "}
-          <span class="menu-price">$${food.price / 100}</span>
-        </h2>
-        <p class="menu-info">${food.description}</p>
-        `));
+      addFoodItem(food);
+    }
+    addItemHandlers();
+  })
+});
 
-      $(".menu").append(wrapper);
-      // $("<h2>").text(food.name + " - ").appendTo($(".menu"));
-      // $("<span>").text(" " + food.price).appendTo($(".menu"));
-      // $("<p>").text(food.description).appendTo($(".menu"));
+const addItemHandlers = () => {
+  $(".plus-item").click(function (event) {
+    const item = $(event.target);
+    const id = item.parent().attr('data-food-id');
+
+    // console.log(`add count to id: ${id}`)
+    const count = $(`[data-food-id="${id}"] .count-for-item`)
+    let getNowVal = count.val() + 1
+    count.val(getNowVal)
+    count.text(getNowVal)
+  });
+
+  $(".subtract-item").click(function () {
+    const item = $(event.target);
+    const id = item.parent().attr('data-food-id');
+
+    // console.log(`add count to id: ${id}`)
+    const count = $(`[data-food-id="${id}"] .count-for-item`)
+    let getNowVal = count.val() - 1
+    count.val(getNowVal)
+    count.text(getNowVal)
+    if (getNowVal <= 0) {
+      count.val(0)
+      count.text(0)
     }
   });
-});
+}
+
+const addFoodItem = (food) => {
+  const wrapper = $("<div class='menu-item'>")
+    .append($("<div class='menu-img-container'>").html(`<img src="https://peterspicksblog.files.wordpress.com/2017/03/lotr-rabbit-stew.jpg" />`))
+    .append($("<div class='menu-content'>").html(`
+    <h2 class="menu-title">${food.name}
+      <span class="menu-price">${" - $" + food.price / 100}</span>
+    </h2>
+    <p class="menu-info">${food.description}</p>
+    `))
+    .append($("<div class='count-item-content'>").html(`
+      <ul class="modified" data-food-id="${food.id}">
+        <li class="look-of-modified plus-item">+</li>
+        <li class="count-for-item">0</li>
+        <li class="look-of-modified subtract-item">-</li>
+      </ul>
+    `))
+
+  $(".menu").append(wrapper);
+}

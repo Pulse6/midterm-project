@@ -44,10 +44,13 @@ $(() => {
     console.log(res)
     for (food of res.menu) {
       const wrapper = $("<div class='menu-item'>")
-        .append($("<h2>")
-          .text(food.name + " - ")
-          .append($("<span class='price'>").text(`$${food.price/100}`)))
-        .append($("<p>").text(food.description));
+        .append($("<div class='menu-img-container'>").html(`<img src="https://peterspicksblog.files.wordpress.com/2017/03/lotr-rabbit-stew.jpg" />`))
+        .append($("<div class='menu-content'>").html(`
+        <h2 class="menu-title">${food.name + " - "}
+          <span class="menu-price">$${food.price / 100}</span>
+        </h2>
+        <p class="menu-info">${food.description}</p>
+        `));
 
       $(".menu").append(wrapper);
       // $("<h2>").text(food.name + " - ").appendTo($(".menu"));

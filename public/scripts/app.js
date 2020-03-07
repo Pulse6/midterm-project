@@ -18,7 +18,7 @@ $(() => {
       const wrapper = $("<div class='menu-item'>")
         .append($("<h2>")
           .text(food.name + " - ")
-          .append($("<span class='price'>").text(food.price)))
+          .append($("<span class='price'>").text(`$${food.price/100}`)))
         .append($("<p>").text(food.description));
 
       $(".menu").append(wrapper);

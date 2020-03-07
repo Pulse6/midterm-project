@@ -55,5 +55,4 @@ $(() => {
       // $("<p>").text(food.description).appendTo($(".menu"));
     }
   });
-
 });

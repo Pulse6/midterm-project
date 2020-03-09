@@ -191,8 +191,8 @@ body {
   font-size: 17px;
   background-color: #ccc;
   /* overflow-x: hidden;
-  overflow-y: hidden; */
-  /* overflow: hidden; */
+  overflow-y: hidden;
+  overflow: hidden; */
 }
 
 .container {
@@ -421,16 +421,14 @@ p, address {
   margin-bottom: 20px;
 }
 
-/* .gallery-price {
-  font-size: 1.25rem;
-  color: #2F956D;
-  margin-bottom: 60px;
-} */
-
-
 /* ///////////////////// */
+.add-to-order-top-container {
+  background: none;
+  border: none;
+}
+
 .add-to-order-container, .add-to-order-button, .add-to-order-price {
-	 position: absolute;
+   position: absolute;
 }
  .add-to-order-container {
    position: relative;
@@ -454,7 +452,7 @@ p, address {
 	 width: 100%;
 	 height: 50px;
 	 font-family: 'MedievalSharp', sans-serif;
-	 transition: all 0.2s ease-in-out;
+	 transition: all 0.5s ease-in-out;
 	 font-size: 17px;
 	 text-transform: uppercase;
 	 color: #4E9270;
@@ -464,7 +462,7 @@ p, address {
 	 line-height: 50px;
 }
  .add-to-order-price {
-	 opacity: 0;
+   opacity: 0;
 }
  .add-to-order-container:hover {
    width: 170px;

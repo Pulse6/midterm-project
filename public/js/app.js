@@ -1,55 +1,14 @@
-/* ———————————————————— NAVBAR ———————————————————— */
-$(() => {
-  const indicator = document.querySelector('.nav-indicator');
-  const items = document.querySelectorAll('.nav-item');
-
-  function handleIndicator(el) {
-    items.forEach(item => {
-      item.classList.remove('is-active');
-      item.removeAttribute('style');
-    });
-
-    indicator.style.width = `${el.offsetWidth}px`;
-    indicator.style.left = `${el.offsetLeft}px`;
-    indicator.style.backgroundColor = el.getAttribute('active-color');
-
-    el.classList.add('is-active');
-    el.style.color = el.getAttribute('active-color');
-  }
-
-
-  items.forEach((item, index) => {
-    item.addEventListener('click', (e) => { handleIndicator(e.target) });
-    item.classList.contains('is-active') && handleIndicator(item);
-  });
-});
-
 /* ———————————————————— GET USERS FROM SQL ———————————————————— */
-$(() => {
-  // console.log("it works")
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for (user of users.users) {
-      $("<div>").text(user.name).appendTo($(""));
-    }
-  });
-
-  /* ———————————————————— GET MENU FROM SQL ———————————————————— */
-  $.ajax({
-    method: "GET",
-    url: "/api/menu"
-  }).done((res) => {
-    // console.log(res)
-    for (food of res.menu) {
-      addFoodItem(food);
-    }
-    addItemHandlers();
-    removeItemFromCart();
-    // addCartHandlers();
-  })
-});
+// $(() => {
+//   // console.log("it works")
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/users"
+//   }).done((users) => {
+//     for (user of users.users) {
+//       $("<div>").text(user.name).appendTo($(""));
+//     }
+//   });
 
 // const addItemHandlers = () => {
 //   $(".add-to-cart").click(function (event) {
@@ -195,24 +154,34 @@ const removeItemFromCart = () => {
 //   });
 // }
 
-const addFoodItem = (food) => {
-  const wrapper = $("<div class='menu-item'>")
-    .append($("<div class='menu-img-container'>").html(`<img src="https://peterspicksblog.files.wordpress.com/2017/03/lotr-rabbit-stew.jpg" />`))
-    .append($("<div class='menu-content'>").html(`
-    <h2 class="menu-title">
-      <span class="menu-name">${food.name}</span>
-      <span> - $</span>
-      <span class="menu-price">${food.price / 100}</span>
-    </h2>
-    <p class="menu-info">${food.description}</p>
-    `))
-    .append($("<div class='count-item-content'>").html(`
-      <button class="add-to-cart" data-food-id="${food.id}">
-        Add
-      </button>
-    `))
 
-  $(".menu").append(wrapper);
+const addEntree = (entree) => {
+  const wrapper = `
+  <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+    <figure>
+      <img src="/assets/gallery/01.jpg" alt="Image" class="img-fluid gallery-img" />
+      <figcaption>
+        <h4 class="gallery-title">${entree.name}</h4>
+        <p class="gallery-description">${entree.description}</p>
+      </figcaption>
+      <!-- Add to Order Button -->
+      <button class="add-to-order-top-container" data-entree-id="${entree.id}>
+                <div class="add-to-order-container">
+                  <div class="wrap">
+                    <div class="add-to-order-button">Add to Order</div>
+                    <div class="add-to-order-price">${entree.price / 100}</div>
+                  </div>
+                </div>
+              </button>
+      <!-- /Add to Order Button -->
+    </figure>
+  </article>
+  `;
+
+  $("#gallery-page-pizza").append(wrapper);
+
+/* ———————————————————— GET MENU FROM SQL ———————————————————— */
+
 }
 
 // <ul class="modified" data-food-id="${food.id}">
@@ -220,3 +189,21 @@ const addFoodItem = (food) => {
 // <li class="count-for-item">0</li>
 // <li class="look-of-modified subtract-item">-</li>
 // </ul>
+
+
+// // CREATE FUNCTIONS UP TOP, CALL THEM INSIDE THE DOLLAR FUNCTION BELOW
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/api/menu"
+  }).done((res) => {
+    // console.log(res)
+    for (food of res.menu) {
+      addEntree(entree);
+    }
+    addItemHandlers();
+    removeItemFromCart();
+    // addCartHandlers();
+  });
+
+})

@@ -77,29 +77,31 @@
 // }
 
 const addItemHandlers = () => {
-  $(".add-to-order-button").click(function (event) {
+  $(".wrap").click(function (event) {
     const item = $(event.target);
-    const food = item.parent().parent()
-    console.log(food)
+    const food = item.parent().parent().parent().parent()
     const name = food.find(".gallery-title").text()
-    const price = food.find(".add-to-order-price").text()
+    const price = parseInt(food.find(".add-to-order-price").text().slice(1) * 100) / 100
+    const quantity = $(".shopping-cart-items li:contains(" + name + ")").find(".item-count").text()
+    // console.log(quantity)
 
-    var item_count = $(".shopping-cart-items div:contains(" + name + ")")
+    const item_count = $(".shopping-cart-items li:contains(" + name + ")")
     // console.log(item_count)
     // if (item_count.length <= 0) {
     //   $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val("1");
     // }
     if (item_count.length != 0) {
-      var el = parseInt($(".shopping-cart-items div:contains(" + name + ")").find(".item-count").find(".item-count").val());
-      $(".shopping-cart-items div:contains(" + name + ")").find(".item-count").find(".item-count").val(el + 1);
+      const el = parseInt($(".shopping-cart-items li:contains(" + name + ")").find(".item-quantity").find(".item-count").text());
+      // console.log(el)
+      $(".shopping-cart-items li:contains(" + name + ")").find(".item-quantity").find(".item-count").text(el + 1);
     }
     else {
       $(".shopping-cart-items").append(`
       <li class="clearfix">
         <img src="/assets/gallery/01.jpg" alt="item1" />
         <span class="item-name">${name}</span>
-        <span class="item-price">${price}</span>
-        <span class="item-quantity">Quantity: 01</span>
+        <span class="item-price">${"$" + price}</span>
+        <span class="item-quantity">Quantity: <span class="item-count">1</span></span>
       </li>
   `)
     }

@@ -58,7 +58,7 @@
 
               <!-- Order Cart: Items-->
               <ul class="shopping-cart-items">
-                <li class="clearfix">
+                <!-- <li class="clearfix">
                   <img src="/assets/gallery/01.jpg" alt="item1" />
                   <span class="item-name">Halibut</span>
                   <span class="item-price">$849.99</span>
@@ -67,7 +67,7 @@
 
                 <li class="clearfix">
                   <img src="/assets/gallery/02.jpg" alt="item1" />
-                  <span class="item-name">Fish -N- Chips</span>
+                  <span class="item-name">Salad Item</span>
                   <span class="item-price">$1,249.99</span>
                   <span class="item-quantity">Quantity: 01</span>
                 </li>
@@ -77,7 +77,7 @@
                   <span class="item-name">Fried Dragon</span>
                   <span class="item-price">$129.99</span>
                   <span class="item-quantity">Quantity: 01</span>
-                </li>
+                </li> -->
               </ul>
               <!-- /Order Cart: Items-->
               <a href="#" class="button">ORDER</a>
@@ -262,18 +262,20 @@
       } */
 
       function addToTotalOrders() {
-        $('.add-to-order-container').click(function () {
+        $('.wrap').click(function () {
           $(".shopping-cart").fadeIn("fast");
-
-          let totalOrders = +$('.badge-outer').html();
-          totalOrders++;
+          const fullList = $(".shopping-cart-items")
+          console.log(fullList)
+          let totalOrders = parseInt($('.badge-outer').val());
+          // console.log(totalOrders)
+          totalOrders += 1;
           $('.badge-outer').html(totalOrders);
           $('.badge-inner').html(totalOrders);
         })
       }
 
       function addToOrderTotal() {
-        $('.add-to-order-container').click(function () {
+        $('.wrap').click(function () {
           let orderTotal = +$('.main-color.text').html();
           let price = $(` .add-to-order-container > .wrap > .add-to-order-price`).html()
           // price += price;

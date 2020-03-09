@@ -192,7 +192,7 @@ body {
   background-color: #ccc;
   /* overflow-x: hidden;
   overflow-y: hidden; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .container {

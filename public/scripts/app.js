@@ -51,53 +51,103 @@ $(() => {
   })
 });
 
+// const addItemHandlers = () => {
+//   $(".add-to-cart").click(function (event) {
+//     const item = $(event.target);
+//     const id = item.attr('data-food-id');
+//     // console.log()
+//     const food = item.parent().parent()
+//     const name = food.find(".menu-name").text()
+//     const price = food.find(".menu-price").text()
+//     // const amount = item.parent().parent().parent().parent()
+//     // console.log(amount)
+//     // const cart = $(".item-template")
+//     // console.log(cart)
+//     // for (let item of cart) {
+//     //   console.log(item.attr('data-id'))
+//     // }
+//     // console.log(cart)
+//     if ($(".item-template").find(".item-name").text() === name) {
+//       console.log("already there")
+
+//     } else {
+//       $(".item-template").append(`
+//       <div data-id="${id}">
+//       <li class="item-name" >${name}</li>
+//       <li class="item-price">${price}</li>
+//       <li class="item-count">
+//       <input class="item-count" type="number" value="1">
+//       <button class="remove-item">REMOVE</button>
+//       </li>
+//       </div>
+//       `)
+//     }
+//     // for (item of cart) {
+//     //   const foodID = item.attr('data-id')
+//     //   if (foodID === id) {
+//     //     $(".item-count").val() + 1
+//     //   }
+//     // }
+//     // for ($(.item-template))
+//   });
+//   // $(".plus-item").click(function (event) {
+//   //   const item = $(event.target);
+//   //   const id = item.parent().attr('data-food-id');
+
+//   //   console.log(`add count to id: ${id}`)
+//   //   const count = $(`[data-food-id="${id}"] .count-for-item`)
+//   //   let getNowVal = count.val() + 1
+//   //   count.val(getNowVal)
+//   //   count.text(getNowVal)
+//   // });
+
+//   // $(".subtract-item").click(function () {
+//   //   const item = $(event.target);
+//   //   const id = item.parent().attr('data-food-id');
+
+//   //   // console.log(`add count to id: ${id}`)
+//   //   const count = $(`[data-food-id="${id}"] .count-for-item`)
+//   //   let getNowVal = count.val() - 1
+//   //   count.val(getNowVal)
+//   //   count.text(getNowVal)
+//   //   if (getNowVal <= 0) {
+//   //     count.val(0)
+//   //     count.text(0)
+//   //   }
+//   // });
+// }
+
 const addItemHandlers = () => {
-    $(".add-to-cart").click(function (event) {
-    const item = $(event.target);
-    const id = item.attr('data-food-id');
-    const food = item.parent().parent()
-    const name = food.find(".menu-name").text()
-    const price = food.find(".menu-price").text()
-    // const amount = item.parent().parent().parent().parent()
-    // console.log(amount)
-    // if()
+  $(".add-to-cart").click(function (event) {
+  const item = $(event.target);
+  const id = item.attr('data-food-id');
+  const food = item.parent().parent()
+  const name = food.find(".menu-name").text()
+  const price = food.find(".menu-price").text()
+  // const amount = item.parent().parent().parent().parent()
+  // console.log(amount)
+  var item_count = $(".item-template div:contains("+ name +")")
+  // if (item_count.length <= 0) {
+  //   $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val("1");
+  // }
+  if (item_count.length != 0){
+    //$('div:contains(name)').find($('li.item-count'))
+    var el = parseInt($(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val());
+    $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val(el+1);
+  }
+  else{
     $(".item-template").append(`
-    <div>
-    <li class="item-name">${name}</li>
-    <li class="item-price">${price}</li>
-    <li class="item-count">
-    <input class="item-count" type="number" value="1">
-    <button class="remove-item">REMOVE</button>
-    </li>
-    </div>
-    `)
-
-  });
-  // $(".plus-item").click(function (event) {
-  //   const item = $(event.target);
-  //   const id = item.parent().attr('data-food-id');
-
-  //   console.log(`add count to id: ${id}`)
-  //   const count = $(`[data-food-id="${id}"] .count-for-item`)
-  //   let getNowVal = count.val() + 1
-  //   count.val(getNowVal)
-  //   count.text(getNowVal)
-  // });
-
-  // $(".subtract-item").click(function () {
-  //   const item = $(event.target);
-  //   const id = item.parent().attr('data-food-id');
-
-  //   // console.log(`add count to id: ${id}`)
-  //   const count = $(`[data-food-id="${id}"] .count-for-item`)
-  //   let getNowVal = count.val() - 1
-  //   count.val(getNowVal)
-  //   count.text(getNowVal)
-  //   if (getNowVal <= 0) {
-  //     count.val(0)
-  //     count.text(0)
-  //   }
-  // });
+  <div>
+  <li class="item-name">${name}</li>
+  <li class="item-price">${price}</li>
+  <li class="item-count">
+  <input class="item-count" type="number" value="1">
+  <button class="remove-item">REMOVE</button>
+  </li>
+  </div>
+  `)
+  }
+});
 }
 
 const removeItemFromCart = () => {

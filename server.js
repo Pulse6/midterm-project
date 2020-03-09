@@ -52,6 +52,12 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+
+/* ORDER PAGE */
+app.get("/order", (req, res) => {
+  res.render("order.ejs");
+})
+
 app.listen(PORT, () => {
   console.log(`The Second Breakfast Club listening on port: ${PORT}`);
 });

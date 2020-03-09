@@ -206,7 +206,6 @@
         </div>
       </div>
       <!-- /Food of the Day -->
-
     </main>
     <!-- /Main Container  -->
 
@@ -219,5 +218,74 @@
       </p>
     </footer>
     <!-- /Footer  -->
+
+    <!-- JavaScript -->
+    <script src="js/parallax.min.js"></script>
+    <script>
+      function defaultHideCart() {
+        $('.shopping-cart').hide();
+      }
+
+      function showCartOnToggle() {
+        $('#cart').click(function(e) {
+          e.preventDefault();
+          $(".shopping-cart").fadeToggle("fast");
+        })
+      }
+
+      function filterCategories() {
+        $('.paging-link').click(function(e) {
+          e.preventDefault();
+
+          const page = $(this).text().toLowerCase();
+          $('.gallery-page').addClass('hidden');
+          $('#gallery-page-' + page).removeClass('hidden').fadeTo("slow");
+          $('.paging-link').removeClass('active');
+          $(this).addClass("active");
+        });
+      }
+
+      /* function showAddToOrderButtonOnHover() {
+        Handle add to order on hover
+        $('.add-to-order-container').addClass('hidden');
+        $('.gallery-item').hover(
+          function() {
+            $('.add-to-order-container').removeClass('hidden');
+          },
+          function() {
+            $('add-to-order-container').addClass('hidden');
+          }
+        );
+      } */
+
+      function addToTotalOrders() {
+        $('.add-to-order-container').click(function() {
+          $(".shopping-cart").fadeIn("fast");
+
+          let totalOrders = +$('.badge-outer').html();
+          totalOrders++;
+          $('.badge-outer').html(totalOrders);
+          $('.badge-inner').html(totalOrders);
+        })
+      }
+
+      function addToOrderTotal() {
+        $('.add-to-order-container').click(function() {
+          let orderTotal = +$('.main-color.text').html();
+          let price = $(` .add-to-order-container > .wrap > .add-to-order-price`).html()
+          // price += price;
+          $('.main-color-text').html(price)
+        })
+      }
+
+      $(function() {
+        defaultHideCart();
+        showCartOnToggle();
+        filterCategories();
+        addToTotalOrders();
+        addToOrderTotal();
+      });
+    </script>
+    <!-- /JavaScript -->
 </body>
 </html>

@@ -41,13 +41,11 @@ $(() => {
     method: "GET",
     url: "/api/menu"
   }).done((res) => {
-    // console.log(res)
     for (food of res.menu) {
       addFoodItem(food);
     }
     addItemHandlers();
-    removeItemFromCart();
-    // addCartHandlers();
+    removeItemFromCart()
   })
 });
 
@@ -121,28 +119,25 @@ const addItemHandlers = () => {
   $(".add-to-cart").click(function (event) {
   const item = $(event.target);
   const id = item.attr('data-food-id');
+  // console.log(id)
   const food = item.parent().parent()
   const name = food.find(".menu-name").text()
   const price = food.find(".menu-price").text()
-  // const amount = item.parent().parent().parent().parent()
-  // console.log(amount)
-  var item_count = $(".item-template div:contains("+ name +")")
-  // if (item_count.length <= 0) {
-  //   $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val("1");
-  // }
-  if (item_count.length != 0){
-    //$('div:contains(name)').find($('li.item-count'))
-    var el = parseInt($(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val());
-    $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val(el+1);
-  }
-  else{
+  const nowCount = parseInt($(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val());
+    $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val()
+
+  if (nowCount <= 0) {
+    $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val("1");
+  } else if (nowCount){
+    $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val(nowCount+1);
+  } else {
     $(".item-template").append(`
-  <div>
+  <div calss="${name}">
   <li class="item-name">${name}</li>
   <li class="item-price">${price}</li>
   <li class="item-count">
   <input class="item-count" type="number" value="1">
-  <button class="remove-item">REMOVE</button>
+  <button class="remove-item" data-name="${name}">REMOVE</button>
   </li>
   </div>
   `)
@@ -151,9 +146,12 @@ const addItemHandlers = () => {
 }
 
 const removeItemFromCart = () => {
-  $(".remove-item").click(function () {
+  $(".remove-item").click(function (event) {
     const item = $(event.target);
-    console.log("hi")
+    const getClass = item.attr('data-name')
+    console.log("getClass")
+
+    // const thisOne = item.parent().parent().remove()
   })
 }
 

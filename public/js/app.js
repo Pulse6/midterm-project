@@ -75,7 +75,6 @@
 //   }
 // });
 // }
-
 const addItemHandlers = () => {
   $(".wrap").click(function (event) {
     const item = $(event.target);
@@ -83,13 +82,8 @@ const addItemHandlers = () => {
     const name = food.find(".gallery-title").text()
     const price = parseInt(food.find(".add-to-order-price").text().slice(1) * 100) / 100
     const quantity = $(".shopping-cart-items li:contains(" + name + ")").find(".item-count").text()
-    // console.log(quantity)
-
     const item_count = $(".shopping-cart-items li:contains(" + name + ")")
-    // console.log(item_count)
-    // if (item_count.length <= 0) {
-    //   $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val("1");
-    // }
+
     if (item_count.length != 0) {
       const el = parseInt($(".shopping-cart-items li:contains(" + name + ")").find(".item-quantity").find(".item-count").text());
       // console.log(el)
@@ -102,17 +96,13 @@ const addItemHandlers = () => {
         <span class="item-name">${name}</span>
         <span class="item-price">${"$" + price}</span>
         <span class="item-quantity">Quantity: <span class="item-count">1</span></span>
+        <span class="item-remove">X</span>
       </li>
-  `)
-    }
-  });
-}
+    `);
+    removeItemFromCart()
 
-const removeItemFromCart = () => {
-  $(".remove-item").click(function () {
-    const item = $(event.target);
-    console.log("hi")
-  })
+  }
+  });
 }
 
 const addEntree = (entree) => {
@@ -168,3 +158,35 @@ const addToOrderTotal = () => {
     $(".main-color-text").text("$" + orderTotal)
   })
 }
+// $(function () {
+  // console.log("it works!!")
+// const removeItemFromCart = () => {
+  $("body").on("click", ".item-remove", function (event) {
+    const item = $(event.target)
+    // console.log(target.length)
+    const target = $(this).parent()
+    // const dammmm = target.attr('data-name')
+    // console.log(dammmm)
+    // const id = item.attr('data-food-id')
+    // console.log($(this).parent())
+    const price = parseInt(target.find(".item-price").text().slice(1) * 100)
+    console.log("price " + price)
+    const amount = parseInt(target.find(".item-quantity").find(".item-count").text())
+    console.log("amount "+amount)
+    const currentTot = parseInt($(".main-color-text").text().slice(1) * 100)
+    console.log("current tot "+currentTot)
+    const newtot = (currentTot - (amount * price)) / 100
+    console.log("newtot  "+newtot)
+    $(".main-color-text").text("$" + newtot)
+
+    let totalOrders = parseInt($('.badge-outer').text());
+    // console.log(totalOrders)
+    totalOrders -= amount;
+    $('.badge-outer').html(totalOrders);
+    $('.badge-inner').html(totalOrders);
+
+    $(this).parent().remove()
+  })
+// }
+// });
+

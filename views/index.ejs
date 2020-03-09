@@ -12,6 +12,7 @@
   <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" >
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
+
 </head>
 
 <body>
@@ -62,6 +63,7 @@
                   <span class="item-name">Halibut</span>
                   <span class="item-price">$849.99</span>
                   <span class="item-quantity">Quantity: 01</span>
+                  <span class="item-remove">X</span>
                 </li>
 
                 <li class="clearfix">
@@ -220,30 +222,31 @@
     <!-- /Footer  -->
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="/js/app.js"></script>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/vendor/parallax.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+
     <script>
       function defaultHideCart() {
         $('.shopping-cart').hide();
       }
 
       function showCartOnToggle() {
-        $('#cart').click(function (e) {
-          e.preventDefault();
+        $('#cart').click(function (event) {
+          event.preventDefault();
           $(".shopping-cart").fadeToggle("fast");
         })
       }
 
       function filterCategories() {
-        $('.paging-link').click(function (e) {
-          e.preventDefault();
+        $('.paging-link').click(function (event) {
+          event.preventDefault();
 
           const page = $(this).text().toLowerCase();
           // console.log(page);
           $('.gallery-page').addClass('hidden');
           $('.gallery-page-' + page).removeClass('hidden').fadeTo("slow");
-          console.log('#gallery-page-' + page)
+          // console.log('#gallery-page-' + page)
           $('.paging-link').removeClass('active');
           $(this).addClass("active");
         });
@@ -267,7 +270,7 @@
           method: "GET",
           url: "/api/menu"
         }).done((res) => {
-          console.log(res)
+          // console.log(res)
           for (food of res.menu) {
             addEntree(food);
           }

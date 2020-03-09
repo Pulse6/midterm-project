@@ -186,6 +186,7 @@ html {
   max-width: 100%;
   height: auto;
   border-radius: 3%;
+  max-height: 130px;
 }
 
 body {
@@ -357,6 +358,7 @@ p, address {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gallery-description {

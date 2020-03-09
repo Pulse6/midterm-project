@@ -32,12 +32,14 @@ html {
 }
 
 .row {
+  max-width: 75%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-left: -15px;
   margin-right: -15px;
+  margin: auto;
 }
 
 .col-lg-3,
@@ -425,6 +427,7 @@ p, address {
 .add-to-order-top-container {
   background: none;
   border: none;
+  outline: none;
 }
 
 .add-to-order-container, .add-to-order-button, .add-to-order-price {
@@ -459,7 +462,9 @@ p, address {
 	 letter-spacing: 2px;
 	 text-align: center;
 	 vertical-align: middle;
-	 line-height: 50px;
+   line-height: 50px;
+   /* outline: none; */
+
 }
  .add-to-order-price {
    opacity: 0;

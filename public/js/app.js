@@ -156,10 +156,10 @@ const removeItemFromCart = () => {
 
 const addEntree = (entree) => {
   const wrapper = `
-  <div id="gallery-page-pizza" class="gallery-page">
+  <div class="gallery-page-${entree.food_category} gallery-page">
   <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
     <figure>
-      <img src="/assets/gallery/01.jpg" alt="Image" class="img-fluid gallery-img" />
+      <img src="${entree.item_img}" alt="Image" class="img-fluid gallery-img" />
       <figcaption>
         <h4 class="gallery-title">${entree.name}</h4>
         <p class="gallery-description">${entree.description}</p>

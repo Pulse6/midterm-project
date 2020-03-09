@@ -106,9 +106,9 @@
       <div class="paging-links">
         <nav>
           <ul>
-            <li class="paging-item"><a href="#" class="paging-link active">Pizza</a></li>
-            <li class="paging-item"><a href="#" class="paging-link">Salad</a></li>
-            <li class="paging-item"><a href="#" class="paging-link">Noodle</a></li>
+            <li class="paging-item"><a href="#" class="paging-link active">Entrees</a></li>
+            <li class="paging-item"><a href="#" class="paging-link">Desserts</a></li>
+            <li class="paging-item"><a href="#" class="paging-link">Drinks</a></li>
           </ul>
         </nav>
       </div>
@@ -241,8 +241,10 @@
           e.preventDefault();
 
           const page = $(this).text().toLowerCase();
+          // console.log(page);
           $('.gallery-page').addClass('hidden');
-          $('#gallery-page-' + page).removeClass('hidden').fadeTo("slow");
+          $('.gallery-page-' + page).removeClass('hidden').fadeTo("slow");
+          console.log('#gallery-page-' + page)
           $('.paging-link').removeClass('active');
           $(this).addClass("active");
         });

@@ -24,8 +24,8 @@ app.use(morgan('dev'));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
-  src: __dirname + "/styles",
-  dest: __dirname + "/public/styles",
+  src: __dirname + "/scss",
+  dest: __dirname + "/public/css",
   debug: true,
   outputStyle: 'expanded'
 }));
@@ -53,5 +53,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`The Second Breakfast Club listening on port: ${PORT}`);
 });

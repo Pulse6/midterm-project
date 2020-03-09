@@ -83,6 +83,7 @@ const addItemHandlers = () => {
     const price = parseInt(food.find(".add-to-order-price").text().slice(1) * 100) / 100
     const quantity = $(".shopping-cart-items li:contains(" + name + ")").find(".item-count").text()
     const item_count = $(".shopping-cart-items li:contains(" + name + ")")
+    const pic = food.find(".img-fluid").attr('src')
 
     if (item_count.length != 0) {
       const el = parseInt($(".shopping-cart-items li:contains(" + name + ")").find(".item-quantity").find(".item-count").text());
@@ -92,14 +93,14 @@ const addItemHandlers = () => {
     else {
       $(".shopping-cart-items").append(`
       <li class="clearfix">
-        <img src="/assets/gallery/01.jpg" alt="item1" />
+        <img src="${pic}" alt="item1" />
         <span class="item-name">${name}</span>
         <span class="item-price">${"$" + price}</span>
         <span class="item-quantity">Quantity: <span class="item-count">1</span></span>
         <span class="item-remove">X</span>
       </li>
     `);
-    removeItemFromCart()
+    // removeItemFromCart()
 
   }
   });
@@ -170,13 +171,13 @@ const addToOrderTotal = () => {
     // const id = item.attr('data-food-id')
     // console.log($(this).parent())
     const price = parseInt(target.find(".item-price").text().slice(1) * 100)
-    console.log("price " + price)
+    // console.log("price " + price)
     const amount = parseInt(target.find(".item-quantity").find(".item-count").text())
-    console.log("amount "+amount)
+    // console.log("amount "+amount)
     const currentTot = parseInt($(".main-color-text").text().slice(1) * 100)
-    console.log("current tot "+currentTot)
+    // console.log("current tot "+currentTot)
     const newtot = (currentTot - (amount * price)) / 100
-    console.log("newtot  "+newtot)
+    // console.log("newtot  "+newtot)
     $(".main-color-text").text("$" + newtot)
 
     let totalOrders = parseInt($('.badge-outer').text());

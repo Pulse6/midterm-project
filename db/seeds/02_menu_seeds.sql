@@ -77,3 +77,5 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
     '/images/butter-tarts.jpg',
     599
   );
+
+

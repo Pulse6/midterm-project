@@ -9,8 +9,8 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM order`)
+  router.get("/order", (req, res) => {
+    db.query(`SELECT * FROM order WHERE user_id = users(id)`)
       .then(data => {
         const users = data.rows;
         res.json({ users });

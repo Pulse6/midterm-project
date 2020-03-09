@@ -2,63 +2,294 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>The Second Breakfast Club</title>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-
-  <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet">
-
+  <link href="../css/style.css" rel="stylesheet" />
+  <link href="../css/cart.css" rel="stylesheet" />
+  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" >
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-
-
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
+  <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <div class="container">
+    <!-- Top-Header Container -->
+    <div class="placeholder">
+      <!-- Parallax Video Container  -->
+      <div class="parallax-window" data-parallax="scroll" data-image-src="../assets/video/green-hills.mp4">
 
-  <!-- HEADER -->
-  <header>
-    <img class="logo"
-      src="https://res.cloudinary.com/moteefe/image/upload/v1544846424/store/logo_image/d53968c5-a47e-4dcf-a265-d4559df83957.png"
-      alt="logo">
-  </header>
+        <div class="picture">
+          <img src="../assets/img/the-second-breakfast-club-the-boys.png" alt="Logo" class="site-picture" />
+        </div>
 
-  <!-- NAVBAR -->
-  <section class="nav-section">
-    <nav class="nav">
-      <a href="#" class="nav-item is-active" active-color="orange">All</a>
-      <a href="#" class="nav-item" active-color="blue">Entrees</a>
-      <a href="#" class="nav-item" active-color="rebeccapurple">Drinks</a>
-      <a href="#" class="nav-item" active-color="red">Desserts</a>
-      <span class="nav-indicator"></span>
-    </nav>
-  </section>
+        <!-- Main Header Container  -->
+        <div class="header">
+          <div class="row header-inner">
+            <div class="col-md-6 col-12">
+              <img src="../assets/img/the-second-breakfast-club-title.png" alt="Logo" class="site-logo" />
+            </div>
 
-  <!-- MENU ITEMS -->
-  <main>
-    <section class="menu-section">
-      <menu class="menu"></menu>
-    </section>
-    <!-- <ul class="modified">
-      <li class="look-of-modified plus-item">+</li>
-      <li class="count-for-item">0</li>
-      <li class="look-of-modified subtract-item">-</li>
-    </ul> -->
-    <!-- <button class="add-to-cart">
-      Add
-    </button> -->
-    <section class="cart">
-      <h2>cart</h2>
-      <ul class="item-template">
-        <!-- <li class="item-name">foodname</li>
-        <li class="item-price">price</li>
-        <li class="item-count"><input type="text"></li> -->
-      </ul>
-    </section>
-  </main>
-  <!-- <div class="cart-show-hide"></div> -->
+            <!-- Navbar Container  -->
+            <nav class="col-md-6 col-12 nav">
+              <ul class="nav-ul">
+                <li class="nav-li"><a href="index.ejs" class="nav-link active">Menu</a></li>
+                <li class="nav-li"><a href="order.ejs" class="nav-link">Order</a></li>
+                <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span
+                      class="badge-outer">0</span></a></li>
+              </ul>
+            </nav>
+            <!-- /Navbar Container  -->
+
+            <!-- Order Cart Container -->
+            <div class="shopping-cart">
+              <!-- Order Cart: Header-->
+              <div class="shopping-cart-header">
+                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge-inner"></span>
+                <div class="shopping-cart-total">
+                  <span class="lighter-text">Total:</span>
+                  <span class="main-color-text">$0.00</span>
+                </div>
+              </div>
+              <!-- /Order Cart: Header-->
+
+              <!-- Order Cart: Items-->
+              <ul class="shopping-cart-items">
+                <li class="clearfix">
+                  <img src="../public/assets/gallery/01.jpg" alt="item1" />
+                  <span class="item-name">Halibut</span>
+                  <span class="item-price">$849.99</span>
+                  <span class="item-quantity">Quantity: 01</span>
+                </li>
+
+                <li class="clearfix">
+                  <img src="../public/assets/gallery/02.jpg" alt="item1" />
+                  <span class="item-name">Fish -N- Chips</span>
+                  <span class="item-price">$1,249.99</span>
+                  <span class="item-quantity">Quantity: 01</span>
+                </li>
+
+                <li class="clearfix">
+                  <img src="../public/assets/gallery/03.jpg" alt="item1" />
+                  <span class="item-name">Fried Dragon</span>
+                  <span class="item-price">$129.99</span>
+                  <span class="item-quantity">Quantity: 01</span>
+                </li>
+              </ul>
+              <!-- /Order Cart: Items-->
+
+              <a href="#" class="button">ORDER</a>
+            </div>
+            <!-- /Order Cart Container -->
+
+          </div>
+        </div>
+        <!-- /Main Header Container  -->
+      </div>
+      <!-- /Parallax Video Container  -->
+    </div>
+    <!-- /Top-Header Container  -->
+
+    <!-- Main Container  -->
+    <main>
+
+      <!-- Welcome Header  -->
+      <header class="row welcome-section">
+        <h2 class="col-12 text-center section-title">Welcome to the Second Breakfast Club</h2>
+        <p class="col-12 text-center">A place to rest in between your journey. We made our website as simple possible,
+          so you
+          can focus less on moving around and more on getting the food you want!</p>
+      </header>
+      <!-- /Welcome Header  -->
+
+      <!-- Paging Filters  -->
+      <div class="paging-links">
+        <nav>
+          <ul>
+            <li class="paging-item"><a href="#" class="paging-link active">Pizza</a></li>
+            <li class="paging-item"><a href="#" class="paging-link">Salad</a></li>
+            <li class="paging-item"><a href="#" class="paging-link">Noodle</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Paging Filters  -->
+
+      <!-- Gallery Container  -->
+      <div class="row gallery">
+
+        <!-- Gallery Category 1  -->
+        <div id="gallery-page-pizza" class="gallery-page">
+          <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+            <figure>
+              <img src="img/gallery/01.jpg" alt="Image" class="img-fluid gallery-img" />
+              <figcaption>
+                <h4 class="gallery-title">Pizzaiolo Pizza</h4>
+                <p class="gallery-description">The bestest bestier best best pizza anyone has ever sawed!</p>
+              </figcaption>
+              <!-- Add to Order Button -->
+              <div class="add-to-order-container">
+                <div class="wrap">
+                  <div class="add-to-order-button">Add to Order</div>
+                  <div class="add-to-order-price">$129.99</div>
+                </div>
+              </div>
+              <!-- /Add to Order Button -->
+            </figure>
+          </article>
+        </div>
+        <!-- /Gallery Category 1  -->
+
+        <!-- Gallery Category 2  -->
+        <div id="gallery-page-salad" class="gallery-page hidden">
+          <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+            <figure>
+              <img src="img/gallery/04.jpg" alt="Image" class="img-fluid gallery-img" />
+              <figcaption>
+                <h4 class="gallery-title">Salad Item</h4>
+                <p class="gallery-description">We only kept this item in because it's locally sourced.</p>
+              </figcaption>
+              <!-- Add to Order Button -->
+              <div class="add-to-order-container">
+                <div class="wrap">
+                  <div class="add-to-order-button">Add to Order</div>
+                  <div class="add-to-order-price">$9.99</div>
+                </div>
+              </div>
+              <!-- /Add to Order Button -->
+            </figure>
+          </article>
+        </div>
+        <!-- /Gallery Category 2  -->
+
+        <!-- Gallery Category 3  -->
+        <div id="gallery-page-noodle" class="gallery-page hidden">
+          <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+            <figure>
+              <img src="img/gallery/08.jpg" alt="Image" class="img-fluid gallery-img" />
+              <figcaption>
+                <h4 class="gallery-title">Po's Noodle</h4>
+                <p class="gallery-description">Yes, this is the same Po you're thinking of. He's taken over the family
+                  business.</p>
+              </figcaption>
+              <!-- Add to Order Button -->
+              <div class="add-to-order-container">
+                <div class="wrap">
+                  <div class="add-to-order-button">Add to Order</div>
+                  <div class="add-to-order-price">$9.99</div>
+                </div>
+              </div>
+              <!-- /Add to Order Button -->
+            </figure>
+          </article>
+        </div>
+        <!-- /Gallery Category 3  -->
+      </div>
+      <!-- /Gallery Container  -->
+
+      <!-- Food of the Day -->
+      <div class="section container-inner">
+        <div class="row">
+          <div class="col-md-6">
+            <figure class="description-figure">
+              <img src="../assets/img/avocado.jpg" alt="Image" class="img-fluid" />
+            </figure>
+          </div>
+          <div class="col-md-6">
+            <div class="description-box">
+              <h4 class="gallery-title">Avocadoian Cado</h4>
+              <p class="mb-45">This is our special avocado. Why is it special? Well it comes from a tree only found in
+                the
+                depths of an icy cavern, at the end, where there's a small cove able to support only an avocado tree's
+                worth
+                of life. You can't just order this item. If you really want it though, it's yours after 100 orders.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Food of the Day -->
+    </main>
+    <!-- /Main Container  -->
+
+    <!-- Footer  -->
+    <footer class="footer text-center">
+      <p>The Second Breakfast Club&trade; | Made with 💚 by:
+        <a style="text-decoration: underline;" href="https://www.github.com/shaheeriam">Shaheer</a>,
+        <a style="text-decoration: underline;" href="https://github.com/Pulse6">Marco</a>, and
+        <a style="text-decoration: underline;" href="https://github.com/lynchseb">Sebastian</a>
+      </p>
+    </footer>
+    <!-- /Footer  -->
+
+    <!-- JavaScript -->
+    <script src="js/parallax.min.js"></script>
+    <script>
+      function defaultHideCart() {
+        $('.shopping-cart').hide();
+      }
+
+      function showCartOnToggle() {
+        $('#cart').click(function(e) {
+          e.preventDefault();
+          $(".shopping-cart").fadeToggle("fast");
+        })
+      }
+
+      function filterCategories() {
+        $('.paging-link').click(function(e) {
+          e.preventDefault();
+
+          const page = $(this).text().toLowerCase();
+          $('.gallery-page').addClass('hidden');
+          $('#gallery-page-' + page).removeClass('hidden').fadeTo("slow");
+          $('.paging-link').removeClass('active');
+          $(this).addClass("active");
+        });
+      }
+
+      /* function showAddToOrderButtonOnHover() {
+        Handle add to order on hover
+        $('.add-to-order-container').addClass('hidden');
+        $('.gallery-item').hover(
+          function() {
+            $('.add-to-order-container').removeClass('hidden');
+          },
+          function() {
+            $('add-to-order-container').addClass('hidden');
+          }
+        );
+      } */
+
+      function addToTotalOrders() {
+        $('.add-to-order-container').click(function() {
+          $(".shopping-cart").fadeIn("fast");
+
+          let totalOrders = +$('.badge-outer').html();
+          totalOrders++;
+          $('.badge-outer').html(totalOrders);
+          $('.badge-inner').html(totalOrders);
+        })
+      }
+
+      function addToOrderTotal() {
+        $('.add-to-order-container').click(function() {
+          let orderTotal = +$('.main-color.text').html();
+          let price = $(` .add-to-order-container > .wrap > .add-to-order-price`).html()
+          // price += price;
+          $('.main-color-text').html(price)
+        })
+      }
+
+      $(function() {
+        defaultHideCart();
+        showCartOnToggle();
+        filterCategories();
+        addToTotalOrders();
+        addToOrderTotal();
+      });
+    </script>
+    <!-- /JavaScript -->
 </body>
 
 </html>

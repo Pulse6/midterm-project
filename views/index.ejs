@@ -289,7 +289,7 @@
           method: "GET",
           url: "/api/menu"
         }).done((res) => {
-          console.log(res)
+          // console.log(res)
           for (food of res.menu) {
             addEntree(food);
           }
@@ -303,6 +303,28 @@
         addToTotalOrders();
         addToOrderTotal();
       });
+
+// SQL query to store database in global variable
+
+
+      $(function () {
+        $.ajax({
+          method: "GET",
+          url: "/api/menu"
+        }).done((res) => {
+          localStorage.setItem('food', JSON.stringify(res.menu))
+        })
+      });
+
+      $(function () {
+        $.ajax({
+          method: "GET",
+          url: "/api/drinks"
+        }).done((res) => {
+          localStorage.setItem('drinks', JSON.stringify(res.drinks))
+        })
+      });
+
     </script>
     <!-- /JavaScript -->
 </body>

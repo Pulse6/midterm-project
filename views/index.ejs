@@ -105,7 +105,9 @@
       <div class="paging-links">
         <nav>
           <ul>
+              <li class="paging-item"><a href="#" class="paging-link active">Menu</a></li>
             <li class="paging-item"><a href="#" class="paging-link active">Entrees</a></li>
+            <li class="paging-item"><a href="#" class="paging-link active">Appetizers</a></li>
             <li class="paging-item"><a href="#" class="paging-link">Desserts</a></li>
             <li class="paging-item"><a href="#" class="paging-link">Drinks</a></li>
           </ul>
@@ -249,6 +251,20 @@
         });
       }
 
+      function showAllMenu() {
+        $('.paging-link').click(function (e) {
+          e.preventDefault();
+
+          const page = $(this).text().toLowerCase();
+          // console.log(page);
+          $('.gallery-page').addClass('hidden');
+          $('.gallery-page-' + page).removeClass('hidden').fadeTo("slow");
+          console.log('#gallery-page-' + page)
+          $('.paging-link').removeClass('active');
+          $(this).addClass("active");
+        });
+      }
+
       /* function showAddToOrderButtonOnHover() {
         Handle add to order on hover
         $('.add-to-order-container').addClass('hidden');
@@ -284,12 +300,13 @@
         })
       }
 
-      $(function () {
+      function getMenu() {
         $.ajax({
           method: "GET",
           url: "/api/menu"
         }).done((res) => {
           // console.log(res)
+          localStorage.setItem('food', JSON.stringify(res.menu));
           for (food of res.menu) {
             addEntree(food);
           }
@@ -297,32 +314,32 @@
           // removeItemFromCart();
           // addCartHandlers();
         });
+      }
+
+      function getDrinks() {
+        $.ajax({
+          method: "GET",
+          url: "/api/drinks"
+        }).done((res) => {
+          // console.log(res)
+          localStorage.setItem('drinks', JSON.stringify(res.drinks))
+          for (drink of res.drinks) {
+            addEntree(drink);
+          }
+          addItemHandlers();
+          // removeItemFromCart();
+          // addCartHandlers();
+        });
+      }
+
+      $(function () {
+        getMenu();
+        getDrinks();
         defaultHideCart();
         showCartOnToggle();
         filterCategories();
         addToTotalOrders();
         addToOrderTotal();
-      });
-
-// SQL query to store database in global variable
-
-
-      $(function () {
-        $.ajax({
-          method: "GET",
-          url: "/api/menu"
-        }).done((res) => {
-          localStorage.setItem('food', JSON.stringify(res.menu))
-        })
-      });
-
-      $(function () {
-        $.ajax({
-          method: "GET",
-          url: "/api/drinks"
-        }).done((res) => {
-          localStorage.setItem('drinks', JSON.stringify(res.drinks))
-        })
       });
 
     </script>

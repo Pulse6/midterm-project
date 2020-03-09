@@ -38,7 +38,8 @@
               <ul class="nav-ul">
                 <li class="nav-li"><a href="index.ejs" class="nav-link active">Menu</a></li>
                 <li class="nav-li"><a href="order.ejs" class="nav-link">Order</a></li>
-                <li class="nav-li"><a href="#" id="cart" class="nav-link"><i class="fa fa-shopping-cart"></i> Cart <span class="badge-outer">0</span></a></li>
+                <li class="nav-li"><a href="#" id="cart" class="nav-link"><i class="fa fa-shopping-cart"></i> Cart <span
+                      class="badge-outer">0</span></a></li>
               </ul>
             </nav>
             <!-- /Navbar Container  -->
@@ -96,7 +97,8 @@
       <!-- Welcome Header  -->
       <header class="row welcome-section">
         <h2 class="col-12 text-center section-title">Welcome to the Second Breakfast Club</h2>
-        <p class="col-12 text-center">A place to rest in between your journey. We made our website as simple possible, so you can focus less on moving around and more on getting the food you want!</p>
+        <p class="col-12 text-center">A place to rest in between your journey. We made our website as simple possible,
+          so you can focus less on moving around and more on getting the food you want!</p>
       </header>
       <!-- /Welcome Header  -->
 
@@ -196,7 +198,10 @@
           <div class="col-md-6">
             <div class="description-box">
               <h4 class="gallery-title">Avocadoian Cado</h4>
-              <p class="mb-45">This is our special avocado. Why is it special? Well it comes from a tree only found in the depths of an icy cavern, at the end, where there's a small cove able to support only an avocado tree's worth of life. You can't just order this item. If you really want it though, it's yours after 100 orders.</p>
+              <p class="mb-45">This is our special avocado. Why is it special? Well it comes from a tree only found in
+                the depths of an icy cavern, at the end, where there's a small cove able to support only an avocado
+                tree's worth of life. You can't just order this item. If you really want it though, it's yours after 100
+                orders.</p>
             </div>
           </div>
         </div>
@@ -225,14 +230,14 @@
       }
 
       function showCartOnToggle() {
-        $('#cart').click(function(e) {
+        $('#cart').click(function (e) {
           e.preventDefault();
           $(".shopping-cart").fadeToggle("fast");
         })
       }
 
       function filterCategories() {
-        $('.paging-link').click(function(e) {
+        $('.paging-link').click(function (e) {
           e.preventDefault();
 
           const page = $(this).text().toLowerCase();
@@ -257,7 +262,7 @@
       } */
 
       function addToTotalOrders() {
-        $('.add-to-order-container').click(function() {
+        $('.add-to-order-container').click(function () {
           $(".shopping-cart").fadeIn("fast");
 
           let totalOrders = +$('.badge-outer').html();
@@ -268,7 +273,7 @@
       }
 
       function addToOrderTotal() {
-        $('.add-to-order-container').click(function() {
+        $('.add-to-order-container').click(function () {
           let orderTotal = +$('.main-color.text').html();
           let price = $(` .add-to-order-container > .wrap > .add-to-order-price`).html()
           // price += price;
@@ -276,7 +281,19 @@
         })
       }
 
-      $(function() {
+      $(function () {
+        $.ajax({
+          method: "GET",
+          url: "/api/menu"
+        }).done((res) => {
+          console.log(res)
+          for (food of res.menu) {
+            addEntree(food);
+          }
+          addItemHandlers();
+          // removeItemFromCart();
+          // addCartHandlers();
+        });
         defaultHideCart();
         showCartOnToggle();
         filterCategories();
@@ -286,4 +303,5 @@
     </script>
     <!-- /JavaScript -->
 </body>
+
 </html>

@@ -77,36 +77,33 @@
 // }
 
 const addItemHandlers = () => {
-  $(".add-to-cart").click(function (event) {
-  const item = $(event.target);
-  const id = item.attr('data-food-id');
-  const food = item.parent().parent()
-  const name = food.find(".menu-name").text()
-  const price = food.find(".menu-price").text()
-  // const amount = item.parent().parent().parent().parent()
-  // console.log(amount)
-  var item_count = $(".item-template div:contains("+ name +")")
-  // if (item_count.length <= 0) {
-  //   $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val("1");
-  // }
-  if (item_count.length != 0){
-    //$('div:contains(name)').find($('li.item-count'))
-    var el = parseInt($(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val());
-    $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val(el+1);
-  }
-  else{
-    $(".item-template").append(`
-  <div>
-  <li class="item-name">${name}</li>
-  <li class="item-price">${price}</li>
-  <li class="item-count">
-  <input class="item-count" type="number" value="1">
-  <button class="remove-item">REMOVE</button>
-  </li>
-  </div>
+  $(".add-to-order-button").click(function (event) {
+    const item = $(event.target);
+    const food = item.parent().parent()
+    console.log(food)
+    const name = food.find(".gallery-title").text()
+    const price = food.find(".add-to-order-price").text()
+
+    var item_count = $(".shopping-cart-items div:contains(" + name + ")")
+    // console.log(item_count)
+    // if (item_count.length <= 0) {
+    //   $(".item-template div:contains("+ name +")").find(".item-count").find(".item-count").val("1");
+    // }
+    if (item_count.length != 0) {
+      var el = parseInt($(".shopping-cart-items div:contains(" + name + ")").find(".item-count").find(".item-count").val());
+      $(".shopping-cart-items div:contains(" + name + ")").find(".item-count").find(".item-count").val(el + 1);
+    }
+    else {
+      $(".shopping-cart-items").append(`
+      <li class="clearfix">
+        <img src="/assets/gallery/01.jpg" alt="item1" />
+        <span class="item-name">${name}</span>
+        <span class="item-price">${price}</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
   `)
-  }
-});
+    }
+  });
 }
 
 const removeItemFromCart = () => {
@@ -157,6 +154,7 @@ const removeItemFromCart = () => {
 
 const addEntree = (entree) => {
   const wrapper = `
+  <div id="gallery-page-pizza" class="gallery-page">
   <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
     <figure>
       <img src="/assets/gallery/01.jpg" alt="Image" class="img-fluid gallery-img" />
@@ -165,22 +163,23 @@ const addEntree = (entree) => {
         <p class="gallery-description">${entree.description}</p>
       </figcaption>
       <!-- Add to Order Button -->
-      <button class="add-to-order-top-container" data-entree-id="${entree.id}>
-                <div class="add-to-order-container">
-                  <div class="wrap">
-                    <div class="add-to-order-button">Add to Order</div>
-                    <div class="add-to-order-price">${entree.price / 100}</div>
-                  </div>
-                </div>
-              </button>
+      <button class="add-to-order-top-container">
+        <div class="add-to-order-container">
+          <div class="wrap">
+            <div class="add-to-order-button">Add to Order</div>
+            <div class="add-to-order-price">${"$" + entree.price / 100}</div>
+          </div>
+        </div>
+      </button>
       <!-- /Add to Order Button -->
     </figure>
   </article>
+</div>
   `;
 
-  $("#gallery-page-pizza").append(wrapper);
+  $(".gallery").append(wrapper);
 
-/* ———————————————————— GET MENU FROM SQL ———————————————————— */
+  /* ———————————————————— GET MENU FROM SQL ———————————————————— */
 
 }
 
@@ -192,18 +191,18 @@ const addEntree = (entree) => {
 
 
 // // CREATE FUNCTIONS UP TOP, CALL THEM INSIDE THE DOLLAR FUNCTION BELOW
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/menu"
-  }).done((res) => {
-    // console.log(res)
-    for (food of res.menu) {
-      addEntree(entree);
-    }
-    addItemHandlers();
-    removeItemFromCart();
-    // addCartHandlers();
-  });
+// $(() => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/menu"
+//   }).done((res) => {
+//     console.log(res)
+//     for (food of res.menu) {
+//       addEntree(food);
+//     }
+//     addItemHandlers();
+//     removeItemFromCart();
+//     // addCartHandlers();
+//   });
 
-})
+// })

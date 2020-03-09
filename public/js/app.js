@@ -14,18 +14,18 @@
 //   $(".add-to-cart").click(function (event) {
 //     const item = $(event.target);
 //     const id = item.attr('data-food-id');
-//     // console.log()
+// console.log()
 //     const food = item.parent().parent()
 //     const name = food.find(".menu-name").text()
 //     const price = food.find(".menu-price").text()
-//     // const amount = item.parent().parent().parent().parent()
-//     // console.log(amount)
-//     // const cart = $(".item-template")
-//     // console.log(cart)
-//     // for (let item of cart) {
-//     //   console.log(item.attr('data-id'))
-//     // }
-//     // console.log(cart)
+// const amount = item.parent().parent().parent().parent()
+// console.log(amount)
+// const cart = $(".item-template")
+// console.log(cart)
+// for (let item of cart) {
+//   console.log(item.attr('data-id'))
+// }
+// console.log(cart)
 //     if ($(".item-template").find(".item-name").text() === name) {
 //       console.log("already there")
 
@@ -41,39 +41,39 @@
 //       </div>
 //       `)
 //     }
-//     // for (item of cart) {
-//     //   const foodID = item.attr('data-id')
-//     //   if (foodID === id) {
-//     //     $(".item-count").val() + 1
-//     //   }
-//     // }
-//     // for ($(.item-template))
-//   });
-//   // $(".plus-item").click(function (event) {
-//   //   const item = $(event.target);
-//   //   const id = item.parent().attr('data-food-id');
+// for (item of cart) {
+//   const foodID = item.attr('data-id')
+//   if (foodID === id) {
+//     $(".item-count").val() + 1
+//   }
+// }
+// for ($(.item-template))
+// });
+// $(".plus-item").click(function (event) {
+//   const item = $(event.target);
+//   const id = item.parent().attr('data-food-id');
 
-//   //   console.log(`add count to id: ${id}`)
-//   //   const count = $(`[data-food-id="${id}"] .count-for-item`)
-//   //   let getNowVal = count.val() + 1
-//   //   count.val(getNowVal)
-//   //   count.text(getNowVal)
-//   // });
+//   console.log(`add count to id: ${id}`)
+//   const count = $(`[data-food-id="${id}"] .count-for-item`)
+//   let getNowVal = count.val() + 1
+//   count.val(getNowVal)
+//   count.text(getNowVal)
+// });
 
-//   // $(".subtract-item").click(function () {
-//   //   const item = $(event.target);
-//   //   const id = item.parent().attr('data-food-id');
+// $(".subtract-item").click(function () {
+//   const item = $(event.target);
+//   const id = item.parent().attr('data-food-id');
 
-//   //   // console.log(`add count to id: ${id}`)
-//   //   const count = $(`[data-food-id="${id}"] .count-for-item`)
-//   //   let getNowVal = count.val() - 1
-//   //   count.val(getNowVal)
-//   //   count.text(getNowVal)
-//   //   if (getNowVal <= 0) {
-//   //     count.val(0)
-//   //     count.text(0)
-//   //   }
-//   // });
+//   // console.log(`add count to id: ${id}`)
+//   const count = $(`[data-food-id="${id}"] .count-for-item`)
+//   let getNowVal = count.val() - 1
+//   count.val(getNowVal)
+//   count.text(getNowVal)
+//   if (getNowVal <= 0) {
+//     count.val(0)
+//     count.text(0)
+//   }
+// });
 // }
 
 const addItemHandlers = () => {
@@ -115,45 +115,6 @@ const removeItemFromCart = () => {
   })
 }
 
-// const addCartHandlers = () => {
-//   $(".plus-item").click(function (event) {
-//     const item = $(event.target);
-//     const getitem = item.parent().parent().parent()
-//     const name = getitem.find(".menu-name").text()
-//     const price = getitem.find(".menu-price").text()
-//     const amount = getitem.find(".count-for-item").text()
-//     console.log(name)
-
-//     const id = item.parent().attr('data-food-id');
-//     const count = $(`[data-food-id="${id}"] .count-for-item`)
-
-//     $(".item-template").append("<div>").html(`
-//       <li class="item-name">${name}</li>
-//       <li class="item-price">${price}</li>
-//       <li class="item-count">${amount}</li>
-//     `)
-//   });
-
-//   $(".subtract-item").click(function () {
-//     const item = $(event.target);
-//     const getitem = item.parent().parent().parent()
-//     const name = getitem.find(".menu-name").text()
-//     const price = getitem.find(".menu-price").text()
-//     const amount = getitem.find(".count-for-item").text()
-//     console.log(name)
-
-//     const id = item.parent().attr('data-food-id');
-//     const count = $(`[data-food-id="${id}"] .count-for-item`)
-
-//     $(".item-template").append("<div>").html(`
-//       <li class="item-name">${name}</li>
-//       <li class="item-price">${price}</li>
-//       <li class="item-count">${amount}</li>
-//     `)
-//   });
-// }
-
-
 const addEntree = (entree) => {
   const wrapper = `
   <div class="gallery-page-${entree.food_category} gallery-page">
@@ -180,31 +141,30 @@ const addEntree = (entree) => {
   `;
 
   $(".gallery").append(wrapper);
-
-  /* ———————————————————— GET MENU FROM SQL ———————————————————— */
-
 }
 
-// <ul class="modified" data-food-id="${food.id}">
-// <li class="look-of-modified plus-item">+</li>
-// <li class="count-for-item">0</li>
-// <li class="look-of-modified subtract-item">-</li>
-// </ul>
+const addToTotalOrders = () => {
+  $('.add-to-order-top-container').click(function () {
+    $(".shopping-cart").fadeIn("fast");
+    const fullList = $(".shopping-cart-items")
+    // console.log(fullList)
+    let totalOrders = parseInt($('.badge-outer').text());
+    // console.log(totalOrders)
+    totalOrders += 1;
+    $('.badge-outer').html(totalOrders);
+    $('.badge-inner').html(totalOrders);
+  })
+}
 
-
-// // CREATE FUNCTIONS UP TOP, CALL THEM INSIDE THE DOLLAR FUNCTION BELOW
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/menu"
-//   }).done((res) => {
-//     console.log(res)
-//     for (food of res.menu) {
-//       addEntree(food);
-//     }
-//     addItemHandlers();
-//     removeItemFromCart();
-//     // addCartHandlers();
-//   });
-
-// })
+const addToOrderTotal = () => {
+  $('.add-to-order-top-container').click(function (event) {
+    const item = $(event.target);
+    const food = item.parent().parent().parent().parent()
+    // const name = food.find(".gallery-title").text()
+    const price = parseInt(food.find(".add-to-order-price").text().slice(1) * 100)
+    // console.log(price)
+    let orderTotal = (($(".main-color-text").text().slice(1) * 100) + price) / 100
+    // console.log(orderTotal)
+    $(".main-color-text").text("$" + orderTotal)
+  })
+}

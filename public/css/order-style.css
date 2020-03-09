@@ -335,8 +335,14 @@ p, address {
 }
 
 .welcome-section {
+  display: flex;
+  justify-content: center;
   margin: 40px auto;
   max-width: 655px;
+}
+
+#countdown-timer {
+  margin-bottom: 5%;
 }
 
 .section-title {
@@ -855,13 +861,13 @@ address {
   margin-right: auto;
 }
 
-/* .accordion {
+.accordion {
   padding-top: 40px;
-} */
+}
 
 /* https://www.w3schools.com/howto/howto_js_accordion.asp */
 /* Style the buttons that are used to open and close the accordion panel */
-/* .accordion {
+.accordion {
   font-size: 1.2rem;
   font-family: 'Open Sans', Helevetica, Arial, sans-serif;
   color: #999;
@@ -875,10 +881,10 @@ address {
   text-align: left;
   outline: none;
   transition: 0.4s;
-} */
+}
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-/* .accordion.active, .accordion:hover {
+.accordion.active, .accordion:hover {
   color: #09C;
 }
 
@@ -923,7 +929,7 @@ address {
 }
 
 /* Style the accordion panel. Note: hidden by default */
-/* .panel {
+.panel {
   background-color: white;
   max-height: 0;
   overflow: hidden;
@@ -932,4 +938,4 @@ address {
 
 .panel p {
   padding: 5px 20px 30px;
-}  */
+}

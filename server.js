@@ -49,9 +49,12 @@ app.use("/api/menu", menuRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index.ejs");
 });
 
+app.get("/index", (req, res) => {
+  res.render("index.ejs");
+});
 
 /* ORDER PAGE */
 app.get("/order", (req, res) => {

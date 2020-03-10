@@ -36,12 +36,15 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const orderRoutes = require("./routes/order");
 const menuRoutes = require("./routes/menu");
+const drinksRoutes = require("./routes/drinks");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/order", orderRoutes(db));
 app.use("/api/menu", menuRoutes(db));
+app.use("/api/drinks", drinksRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 
@@ -49,8 +52,13 @@ app.use("/api/menu", menuRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index.ejs");
 });
+
+app.get("/login", (req, res) => {
+  res.render("login.ejs");
+});
+
 
 app.listen(PORT, () => {
   console.log(`The Second Breakfast Club listening on port: ${PORT}`);

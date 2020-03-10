@@ -76,7 +76,7 @@
 // });
 // }
 const addItemHandlers = () => {
-  $(".wrap").click(function (event) {
+  $(".add-to-order-top-container").click(function (event) {
     const item = $(event.target);
     const food = item.parent().parent().parent().parent()
     const name = food.find(".gallery-title").text()

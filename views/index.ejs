@@ -107,7 +107,9 @@
       <div class="paging-links">
         <nav>
           <ul>
-            <li class="paging-item"><a href="#" class="paging-link active">Entrees</a></li>
+            <li class="paging-item"><a href="#" class="paging-link active menu">Menu</a></li>
+            <li class="paging-item"><a href="#" class="paging-link ">Entrees</a></li>
+            <li class="paging-item"><a href="#" class="paging-link">Appetizers</a></li>
             <li class="paging-item"><a href="#" class="paging-link">Desserts</a></li>
             <li class="paging-item"><a href="#" class="paging-link">Drinks</a></li>
           </ul>
@@ -119,16 +121,16 @@
       <div class="row gallery">
 
         <!-- Gallery Category 1  -->
-        <div id="gallery-page-pizza" class="gallery-page">
+        <!-- <div id="gallery-page-pizza" class="gallery-page">
           <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
             <figure>
               <img src="/assets/gallery/01.jpg" alt="Image" class="img-fluid gallery-img" />
               <figcaption>
                 <h4 class="gallery-title">Pizzaiolo Pizza</h4>
                 <p class="gallery-description">The bestest bestier best best pizza anyone has ever sawed!</p>
-              </figcaption>
-              <!-- Add to Order Button -->
-              <button class="add-to-order-top-container">
+              </figcaption> -->
+        <!-- Add to Order Button -->
+        <!-- <button class="add-to-order-top-container">
                 <div class="add-to-order-container">
                   <div class="wrap">
                     <div class="add-to-order-button">Add to Order</div>
@@ -136,54 +138,54 @@
                   </div>
                 </div>
               </button>
-              <!-- /Add to Order Button -->
+              /Add to Order Button
             </figure>
           </article>
-        </div>
+        </div> -->
         <!-- /Gallery Category 1  -->
 
         <!-- Gallery Category 2  -->
-        <div id="gallery-page-salad" class="gallery-page hidden">
+        <!-- <div id="gallery-page-salad" class="gallery-page hidden">
           <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
             <figure>
               <img src="/assets/gallery/02.jpg" alt="Image" class="img-fluid gallery-img" />
               <figcaption>
                 <h4 class="gallery-title">Salad Item</h4>
                 <p class="gallery-description">We only kept this item in because it's locally sourced.</p>
-              </figcaption>
-              <!-- Add to Order Button -->
-              <div class="add-to-order-container">
+              </figcaption> -->
+        <!-- Add to Order Button -->
+        <!-- <div class="add-to-order-container">
                 <div class="wrap">
                   <div class="add-to-order-button">Add to Order</div>
                   <div class="add-to-order-price">$9.99</div>
                 </div>
-              </div>
-              <!-- /Add to Order Button -->
-            </figure>
+              </div> -->
+        <!-- /Add to Order Button -->
+        <!-- </figure>
           </article>
-        </div>
+        </div> -->
         <!-- /Gallery Category 2  -->
 
         <!-- Gallery Category 3  -->
-        <div id="gallery-page-noodle" class="gallery-page hidden">
-          <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
+        <!-- <div id="gallery-page-noodle" class="gallery-page hidden"> -->
+        <!-- <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
             <figure>
               <img src="/assets/gallery/03.jpg" alt="Image" class="img-fluid gallery-img" />
               <figcaption>
                 <h4 class="gallery-title">Po's Noodle</h4>
                 <p class="gallery-description">Yes, that Po. He's taken over the family business.</p>
-              </figcaption>
-              <!-- Add to Order Button -->
-              <div class="add-to-order-container">
+              </figcaption> -->
+        <!-- Add to Order Button -->
+        <!-- <div class="add-to-order-container">
                 <div class="wrap">
                   <div class="add-to-order-button">Add to Order</div>
                   <div class="add-to-order-price">$9.99</div>
                 </div>
-              </div>
-              <!-- /Add to Order Button -->
-            </figure>
-          </article>
-        </div>
+              </div> -->
+        <!-- /Add to Order Button -->
+        <!-- </figure>
+          </article> -->
+        <!-- </div> -->
         <!-- /Gallery Category 3  -->
       </div>
       <!-- /Gallery Container  -->
@@ -193,16 +195,17 @@
         <div class="row">
           <div class="col-md-6">
             <figure class="description-figure">
-              <img src="/assets/img/avocado.jpg" alt="Image" class="img-fluid" />
+              <img src="/assets/img/hobbiton.jpeg" alt="Image" class="img-fluid" />
             </figure>
           </div>
           <div class="col-md-6">
             <div class="description-box">
-              <h4 class="gallery-title">Avocadoian Cado</h4>
-              <p class="mb-45">This is our special avocado. Why is it special? Well it comes from a tree only found in
-                the depths of an icy cavern, at the end, where there's a small cove able to support only an avocado
-                tree's worth of life. You can't just order this item. If you really want it though, it's yours after 100
-                orders.</p>
+              <h4 class="gallery-title">The Second Brekfast Club -Hobbiton, The Shire</h4>
+              <p class="mb-45"> Welcome to the Second Breakfast Club - Brought to you by Master Peregrin Took and
+                Meriadoc Brandybuck </p>
+              <p>
+                Whether you come from near or from far all who travel the King's road to our humble abode will find
+                rest, warmth, good-food and old fashioned Hobbit cheer</p>
             </div>
           </div>
         </div>
@@ -252,6 +255,18 @@
         });
       }
 
+      function showAllMenu() {
+        $('.menu').click(function (e) {
+          e.preventDefault();
+          $('.gallery-page').removeClass('hidden').fadeTo("slow");
+
+          // const page = $(this).text().toLowerCase();
+          // // console.log(page);
+          // $('.paging-menu').removeClass('active');
+          $(this).addClass("active");
+        });
+      }
+
       /* function showAddToOrderButtonOnHover() {
         Handle add to order on hover
         $('.add-to-order-container').addClass('hidden');
@@ -264,6 +279,70 @@
           }
         );
       } */
+
+      // function addToTotalOrders() {
+      //   $('.wrap').click(function () {
+      //     $(".shopping-cart").fadeIn("fast");
+      //     const fullList = $(".shopping-cart-items")
+      //     console.log(fullList)
+      //     let totalOrders = parseInt($('.badge-outer').val());
+      //     // console.log(totalOrders)
+      //     totalOrders += 1;
+      //     $('.badge-outer').html(totalOrders);
+      //     $('.badge-inner').html(totalOrders);
+      //   })
+      // }
+
+      // function addToOrderTotal() {
+      //   $('.wrap').click(function () {
+      //     let orderTotal = +$('.main-color.text').html();
+      //     let price = $(` .add-to-order-container > .wrap > .add-to-order-price`).html()
+      //     // price += price;
+      //     $('.main-color-text').html(price)
+      //   })
+      // }
+
+      function getMenu() {
+        $.ajax({
+          method: "GET",
+          url: "/api/menu"
+        }).done((res) => {
+          localStorage.setItem('food', JSON.stringify(res.menu));
+          for (food of res.menu) {
+            addEntree(food);
+          }
+          // addItemHandlers();
+          // removeItemFromCart();
+          // addCartHandlers();
+        });
+      }
+
+      function getDrinks() {
+        $.ajax({
+          method: "GET",
+          url: "/api/drinks"
+        }).done((res) => {
+          localStorage.setItem('drinks', JSON.stringify(res.drinks))
+          for (drink of res.drinks) {
+            addEntree(drink);
+          }
+          // addItemHandlers();
+          // removeItemFromCart();
+          // addCartHandlers();
+        });
+      }
+
+      $(function () {
+        getMenu();
+        getDrinks();
+        // addItemHandlers();
+        // defaultHideCart();
+        // showCartOnToggle();
+        // filterCategories();
+        // addToTotalOrders();
+        // addToOrderTotal();
+        showAllMenu();
+      });
 
       $(function () {
         $.ajax({
@@ -284,6 +363,7 @@
         showCartOnToggle();
         filterCategories();
       });
+
     </script>
     <!-- /JavaScript -->
 </body>

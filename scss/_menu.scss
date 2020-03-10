@@ -1,0 +1,67 @@
+menu {
+  color: rgb(228, 204, 70);
+  // height: 100vh;
+  width: 100%;
+
+  display: grid; // new -- all these "new" css rules will make it so that no matter what img is put in, it'll be the same size.
+  grid-template-columns: repeat(3, 1fr); // new -- change this if you want more than 3 menu-items in a row
+  grid-gap: 40px; // new -- gap between each menu-item
+
+  .menu-item {
+    display: grid; // new
+    cursor: default; // new
+    background-color: #757148; // new
+    border-radius: 5px; // new
+    transition: 0.2s ease; // new
+
+    /* The "&" in SASS is the same as writing ".menu-item:hover" in vanilla CSS; just a shorthand. */
+    &:hover {
+      transition: all 0.2s ease-out;
+      box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+      top: -4px;
+      border: 1px solid #cccccc;
+      background-color: white;
+      transform: scale(1.02);
+    }
+  }
+
+  .menu-img-container {
+    width: 100%; // new
+    overflow: hidden; // new -- if an image is too large, makes it so it doesn't "overflow" out of the box
+  }
+
+  .menu-img-container img {
+    width: 100%; // new -- makes sure the img is always 100% of the size of it's container
+  }
+
+  h2 {
+    font-family: "MedievalSharp", sans-serif;
+    display: inline-block;
+  }
+
+  p {
+    font-size: 1.3em;
+  }
+}
+.modified {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // position: absolute;
+  // left: 46%;
+  // bottom: 20px;
+}
+
+.look-of-modified {
+  font-size: 1.2em;
+  background-color: lightblue;
+  border-radius: 50%;
+  padding: 0 6px;
+  margin: 2px;
+  cursor: pointer;
+}
+.count-for-item {
+  margin: 0 4px;
+  cursor: default;
+}

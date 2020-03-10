@@ -25,13 +25,13 @@ $("body").on("click", ".add-to-order-top-container", function (event) {
 
   }
 });
-
+// col-lg-3 col-md-4 col-sm-6 col-12
 // for adding all menu item
 const addEntree = (entree) => {
   const wrapper = `
   <div class="gallery-page-${entree.food_category} gallery-page">
-  <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
-    <figure>
+  <article class="gallery-item">
+    <figure class="menu-item-position">
       <img src="${entree.item_img}" alt="Image" class="img-fluid gallery-img" />
       <figcaption>
         <h4 class="gallery-title">${entree.name}</h4>
@@ -166,14 +166,14 @@ function getDrinks() {
 $(function () {
   getMenu();
   getDrinks();
-  $.ajax({
-    method: "GET",
-    url: "/api/menu"
-  }).done((res) => {
-    for (food of res.menu) {
-      addEntree(food);
-    }
-  });
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/api/menu"
+  // }).done((res) => {
+  //   for (food of res.menu) {
+  //     addEntree(food);
+  //   }
+  // });
   defaultHideCart();
   showCartOnToggle();
 });

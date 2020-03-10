@@ -72,7 +72,7 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
   ),
   (
     'Butter Tarts',
-    'These are the best tarts around. Enough said',
+    'These are the best tarts around. Enough said. just order it alright man',
     'desserts',
     '/images/butter-tarts.jpg',
     599

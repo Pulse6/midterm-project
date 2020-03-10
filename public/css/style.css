@@ -183,7 +183,8 @@ html {
 }
 
 .img-fluid {
-  max-width: 100%;
+  min-width: 200px;
+  max-width: 200px;
   height: auto;
   border-radius: 3%;
   max-height: 186px;
@@ -407,7 +408,10 @@ p, address {
 }
 
 .gallery-item {
-  max-width: 280px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 100%;
+  /* 280px */
 }
 
 .gallery-img {
@@ -424,6 +428,16 @@ p, address {
 
 .gallery-description {
   margin-bottom: 20px;
+}
+
+.menu-item-position {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-item-position figcaption {
+  padding: 10px;
 }
 
 /* ///////////////////// */

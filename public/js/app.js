@@ -8,6 +8,15 @@ $("body").on("click", ".add-to-order-top-container", function (event) {
   const item_count = $(".shopping-cart-items li:contains(" + name + ")")
   const pic = food.find(".img-fluid").attr('src')
 
+  const userOrder = {
+    name,
+    price,
+    quantity: +quantity + 1
+  }
+  // console.log(userOrder);
+
+  // setLocalStorage(userOrder);
+
   if (item_count.length != 0) {
     const el = parseInt($(".shopping-cart-items li:contains(" + name + ")").find(".item-quantity").find(".item-count").text());
     $(".shopping-cart-items li:contains(" + name + ")").find(".item-quantity").find(".item-count").text(el + 1);
@@ -88,6 +97,7 @@ $("body").on("click", ".item-remove", function () {
   $(".main-color-text").text("$" + newtot)
   let totalOrders = parseInt($('.badge-outer').text());
   totalOrders -= amount;
+
   $('.badge-outer').html(totalOrders);
   $('.badge-inner').html(totalOrders);
 
@@ -138,6 +148,24 @@ function showCartOnToggle() {
     }
   );
 } */
+const order = []
+
+// function setLocalStorage(item) {
+//     // console.log(order[0])
+//     // console.log(order[0].name);
+//     for (let i = 0; i <= order.length; i++) {
+//       if (order[i] !== item) {
+//         order.push(item)
+//         // console.log(order)
+//       }
+//       // } else {
+//         // order[i].quantity ++
+//       // }
+//     }
+
+//     localStorage.setItem('order', JSON.stringify(order));
+//   };
+
 
 function getMenu() {
   $.ajax({

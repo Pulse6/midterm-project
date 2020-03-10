@@ -7,7 +7,7 @@ INSERT INTO drinks (name, description, food_category, item_img, price) VALUES
     599
   ),
   (
-    'Hobbit''s Ale',
+    'Hobbits Ale',
     'The most passable ale you''ll find. Goes down easy, is light on the pocket and there''s always plenty more',
     'drinks',
     '/images/hobbit-ale.jpg',

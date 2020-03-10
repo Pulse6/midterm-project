@@ -23,3 +23,18 @@ module.exports = (db) => {
   });
   return router;
 };
+
+
+
+// /* router.post? */ app.post('/order', (req, res) => {
+//   const userID = req.session.userID;
+//   const currentOrder = JSON.parse(localStorage.getItem('order'))
+//   database.updateOrderTable({currentOrder, owner_id: userID})
+//     .then(cartOrder => {
+//       res.send(cartOrder);
+//     })
+//     .catch(e => {
+//       console.error(e);
+//       res.send(e);
+//     });
+// });

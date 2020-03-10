@@ -15,14 +15,14 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
 
   ),
   (
-    'Shepherd''s pie',
+    'Shepherds Pie',
     'From the bounty of the fields we''ve all ''borrowed'' from, but this time with his approval: Farmer Maggot Shepherd''s pie will not dissapoint.',
     'entrees',
     '/images/shepherds-pie.jpg',
     1499
   ),
   (
-    'Chef''s Curry',
+    'Chefs Curry',
     'While we Hobbits don''t normally hold well with foreign food this spicy curry from the East came to us back when Old Bilbo turned up not dead. Now we still don''t reckon much for travelling see, but this here is a mighty fine dish that many a Gaffer has taken too and you should too!',
     'entrees',
     '/images/rustic-curry.jpg',
@@ -57,7 +57,7 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
     999
   ),
   (
-    'Chocolate gateau',
+    'Chocolate Gateau',
     'Dark, decadent and as light as you can imagine. Some say Hobbits are the best bakers this side of the Brandywine, but they''d be wrong...we''re the best bakers in Middle Earth',
     'desserts',
     '/images/chocolate-gateau.jpeg',

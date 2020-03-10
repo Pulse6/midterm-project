@@ -13,9 +13,8 @@ $("body").on("click", ".add-to-order-top-container", function (event) {
     price,
     quantity: +quantity + 1
   }
-  // console.log(userOrder);
 
-  // setLocalStorage(userOrder);
+  setLocalStorage(userOrder);
 
   if (item_count.length != 0) {
     const el = parseInt($(".shopping-cart-items li:contains(" + name + ")").find(".item-quantity").find(".item-count").text());
@@ -89,6 +88,8 @@ $("body").on("click", ".add-to-order-top-container", function (event) {
 $("body").on("click", ".item-remove", function () {
   // const item = $(event.target)
   const target = $(this).parent()
+  const name = target.find(".item-name").text()
+  removeLocalStorage(name)
   const price = parseInt(target.find(".item-price").text().slice(1) * 100)
   const amount = parseInt(target.find(".item-quantity").find(".item-count").text())
   const currentTot = parseInt($(".main-color-text").text().slice(1) * 100)
@@ -148,23 +149,53 @@ function showCartOnToggle() {
     }
   );
 } */
-const order = []
 
-// function setLocalStorage(item) {
-//     // console.log(order[0])
-//     // console.log(order[0].name);
-//     for (let i = 0; i <= order.length; i++) {
-//       if (order[i] !== item) {
-//         order.push(item)
-//         // console.log(order)
-//       }
-//       // } else {
-//         // order[i].quantity ++
-//       // }
-//     }
+const getOrder = function () {
+  let order = JSON.parse(localStorage.getItem('order'));
+  if (!order) {
+    order = [];
+  }
+  return order;
+}
 
-//     localStorage.setItem('order', JSON.stringify(order));
-//   };
+const removeLocalStorage = function(name) {
+  const userOrder = getOrder();
+  let newOrder = userOrder.filter(function(e) {
+    return e.name !== name;
+  });
+  localStorage.setItem('order', JSON.stringify(newOrder))
+}
+
+function setLocalStorage(item) {
+  const order = getOrder();
+  let orderIsUnique = true;
+  for (let i = 0; i < order.length; i++) {
+    if (item.name === order[i].name) {
+      order[i].quantity++
+      orderIsUnique = false;
+    }
+  }
+  if (orderIsUnique) {
+    order.push(item);
+  }
+  localStorage.setItem('order', JSON.stringify(order));
+};
+/////
+
+/////
+$("body").on("click", ".button", function (event) {
+  event.preventDefault();
+  let order = JSON.parse(localStorage.getItem('order'));
+  $.ajax({
+    method: "POST",
+    url: "/api/order",
+    data: {order}
+  }).done((res) => {
+    window.location.replace('/order');
+    console.log(res)
+    // updateOrderTable(res)
+  });
+});
 
 
 function getMenu() {

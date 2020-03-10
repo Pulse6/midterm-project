@@ -49,6 +49,8 @@ CREATE TABLE orders (
   order_end TIMESTAMP,
   order_date DATE NOT NULL DEFAULT NOW(),
 
+  owner_id VARCHAR(225),
   item_name VARCHAR(255),
-  amount VARCHAR(225) DEFAULT 0
+  item_price INTEGER,
+  item_quantity INTEGER
 );

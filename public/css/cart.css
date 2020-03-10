@@ -62,8 +62,8 @@ width: 80%;
 .shopping-cart {
   display: block;
   position: absolute;
-  top: 83px;
-  left: 793px;
+  top: 60%;
+  left: 55%;
   margin: 20px 0;
   float: right;
   background: white;

@@ -192,7 +192,8 @@ html {
 body {
   font-family: 'MedievalSharp', Arial, sans-serif;
   font-size: 17px;
-  background-color: #ccc;
+  background-color: white;
+  /* was #ccc */
   /* overflow-x: hidden;
   overflow-y: hidden;
   overflow: hidden; */
@@ -279,7 +280,7 @@ p, address {
   display: inline-block;
   margin-right: 5px;
   /* new */
-  max-width: 40%;
+  max-width: 250px;
   height: auto;
   /* new */
 }

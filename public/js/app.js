@@ -16,6 +16,7 @@ const setLocalStorage = item => {
   const order = getOrder();
   console.log(order);
   let orderIsUnique = true;
+  let price = item.price
 
   for (let i = 0; i < order.length; i++) {
     if (item.name === order[i].name) {
@@ -254,6 +255,8 @@ const wtf = () => {
     $(".gifs-eye").removeClass('hide-clear');
     $(".gifs-potin").removeClass('hide-clear');
     $(".gifs-realdog").removeClass('hide-clear');
+    $(".gifs-hobbits").removeClass('hide-clear');
+    $(".gifs-batman").removeClass('hide-clear');
   });
 };
 
@@ -270,6 +273,8 @@ const nowtf = () => {
     $(".gifs-eye").addClass('hide-clear');
     $(".gifs-potin").addClass('hide-clear');
     $(".gifs-realdog").addClass('hide-clear');
+    $(".gifs-hobbits").addClass('hide-clear');
+    $(".gifs-batman").addClass('hide-clear');
   });
 };
 
@@ -293,3 +298,25 @@ $(function() {
   wtf()
   nowtf()
 });
+
+// scroll top buton
+
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 700) {
+    $("#topBtn").fadeIn();
+
+  } else {
+    $("#topBtn").fadeOut();
+
+  }
+});
+
+$("#topBtn").click(function() {
+  $('html ,body').animate({scrollTop : 0}, 800);
+
+});
+
+window.onunload = () => {
+  // Clear the local storage
+  localStorage.removeItem('order');
+}

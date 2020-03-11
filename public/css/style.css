@@ -1058,8 +1058,45 @@ address {
   animation: move 3s infinite;
 }
 
+.gifs-hobbits {
+  position: fixed;
+  bottom: 50px;
+  right: 50%;
+  animation: moveBottom 8s infinite;
+
+}
+
+.gifs-batman {
+  position: fixed;
+  top: 50px;
+  right: 10%;
+  animation: move 8s infinite;
+}
+
 @keyframes move {
   0%, 100% {top: 0; }
   /* 50% { transform: rotate(180deg) } */
   50% { top: 100%; }
+}
+
+@keyframes moveBottom {
+  0%, 100% {bottom: 0; }
+  /* 50% { transform: rotate(180deg) } */
+  50% { bottom: 100%; }
+}
+
+#topBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 60px;
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+  color: #4E9270;
+  background: solid;
+  border: none;
+  cursor: pointer;
+  display: none;
+  outline: none;
+  /* z-index: 11; */
 }

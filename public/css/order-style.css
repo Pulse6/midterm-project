@@ -939,3 +939,10 @@ address {
 .panel p {
   padding: 5px 20px 30px;
 }
+
+.checkoutImg {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  margin: auto;
+}

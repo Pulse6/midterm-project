@@ -234,3 +234,15 @@ $(function () {
   defaultHideCart();
   showCartOnToggle();
 });
+
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 700) {
+    $("#topBtn").fadeIn();
+  } else {
+    $("#topBtn").fadeOut();
+  }
+});
+$("#topBtn").click(function() {
+  $('html ,body').animate({scrollTop : 0}, 800);
+});
+

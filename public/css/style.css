@@ -962,3 +962,32 @@ address {
 } */
 
 
+#topBtn  {
+  position: fixed;
+  bottom: 40px;
+  right: 60px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  border: none;
+  outline: none;
+  align-items: center;
+
+}
+
+#topBtn img {
+  font-size: 50px;
+  width: auto;
+  height: 75px;
+  outline: none;
+  cursor: pointer;
+}
+
+#topBtn button {
+  border: none;
+  outline: none;
+}
+
+#topBtn p {
+  font-size: 12.5px;
+}

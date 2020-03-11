@@ -8,10 +8,14 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM order WHERE user_id = users(id)`)
+    const ownerId = req.session.userID
+    // console.log(ownerId)
+    db.query(`SELECT * FROM orders WHERE owner_id = '${ownerId}';`)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        // console.log(data)
+        const orders = data.rows;
+        res.json({ orders });
+        // console.log(orders)
       })
       .catch(err => {
         res

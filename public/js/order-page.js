@@ -7,6 +7,30 @@ const preventOrderButtonRefresh = () => {
   });
 };
 
+/* ————————————————————————— HELPER FUNCTIONS ————————————————————————— */
+
+const appendOrderSummaryItem = orderSummaryItem => {
+  const orderSummaryItemHTML = `
+  <li class="cart-list-item">
+        <div class="cart-item-img"
+          style="background-image: url('${orderSummaryItem.item_img}');">
+        </div>
+        <div class="cart-item">
+          <div class="cart-item-description">
+            <span>
+              <p class="cart-item-label">${orderSummaryItem.item_name}</p>
+              <p class="cart-item-price">$${orderSummaryItem.item_price / 100}</p>
+              <p class="cart-item-quantity">Quantity: <span class="exact-quantity">${orderSummaryItem.item_quantity}</span></p>
+            </span>
+          </div>
+        </div>
+      </li>
+  `;
+
+  $(".all-cart-items").append(orderSummaryItemHTML);
+};
+
+
 /* ————————————————————————— AJAX REQUESTS ————————————————————————— */
 
 //////////////////////////////// EXAMPLES FROM INDEX.EJS \/ \/ \/ \/ WILL CHANGE THEM ///////////////////////////////
@@ -51,11 +75,25 @@ const postOrderAndRedirect = () => {
   });
 };
 
+
+const getAndRenderOrderSummaryItems = () => {
+  $.ajax({
+    method: "GET",
+    url: "/api/order"
+  }).done((res) => {
+    // console.log(res.orders)
+    for (orderItem of res.orders) {
+      appendOrderSummaryItem(orderItem);
+    }
+  });
+};
+
 /* ————————————————————————— DOCUMENT.READY ————————————————————————— */
 
 // NOTE: Order of the functions below matters! AJAX requests first, then the rest.
 
 $(function() {
-  // removeCartButtonOnLoad();
+  getAndRenderOrderSummaryItems();
+  // appendOrderSummaryItem();
   preventOrderButtonRefresh();
 });

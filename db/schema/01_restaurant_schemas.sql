@@ -52,5 +52,6 @@ CREATE TABLE orders (
   owner_id VARCHAR(225),
   item_name VARCHAR(255),
   item_price INTEGER,
-  item_quantity INTEGER
+  item_quantity INTEGER,
+  item_img TEXT NOT NULL
 );

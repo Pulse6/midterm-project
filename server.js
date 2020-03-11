@@ -92,7 +92,7 @@ const generateRandomString = function() {
 };
 
 const updateOrderTable = function(currentOrder) {
-  let queryString = `INSERT INTO orders (owner_id, item_name, item_price,item_quantity)
+  let queryString = `INSERT INTO orders (owner_id, item_name, item_price,item_quantity, item_img)
   VALUES
   `;
 
@@ -103,7 +103,8 @@ const updateOrderTable = function(currentOrder) {
       ('${currentOrder.owner_id}',
       '${currentOrder['itemsInTheOrder'][i].name}',
       ${currentOrder['itemsInTheOrder'][i].price * 100},
-      ${currentOrder['itemsInTheOrder'][i].quantity})
+      ${currentOrder['itemsInTheOrder'][i].quantity},
+      '${currentOrder['itemsInTheOrder'][i].storagePic}')
       `;
     } else {
       queryString +=
@@ -111,7 +112,8 @@ const updateOrderTable = function(currentOrder) {
       ('${currentOrder.owner_id}',
       '${currentOrder['itemsInTheOrder'][i].name}',
       ${currentOrder['itemsInTheOrder'][i].price * 100},
-      ${currentOrder['itemsInTheOrder'][i].quantity}),
+      ${currentOrder['itemsInTheOrder'][i].quantity},
+      '${currentOrder['itemsInTheOrder'][i].storagePic}'),
       `;
     }
   }

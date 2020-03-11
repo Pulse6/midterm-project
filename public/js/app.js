@@ -14,7 +14,7 @@ const getOrder = () => {
 // SAVE ORDER TO LOCAL STORAGE (HELPER FUNCTION) \\
 const setLocalStorage = item => {
   const order = getOrder();
-  console.log(order);
+  // console.log(order);
   let orderIsUnique = true;
   let price = item.price
 
@@ -71,11 +71,13 @@ const addMenuItemsToCart = () => {
     const quantity = $(".shopping-cart-items li:contains(" + name + ")").find(".item-count").text();
     const item_count = $(".shopping-cart-items li:contains(" + name + ")");
     const pic = food.find(".img-fluid").attr('src');
+    const storagePic = "/" + pic;
 
     const userOrder = {
       name,
       price,
-      quantity: +quantity + 1
+      quantity: +quantity + 1,
+      storagePic
     };
 
     setLocalStorage(userOrder);

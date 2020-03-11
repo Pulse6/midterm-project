@@ -1,3 +1,5 @@
+const runTwilio = require('./api/twilio');
+
 /* ————————————————————————— REQUIREMENTS ————————————————————————— */
 
 // LOAD DATA FROM .env INTO process.env \\
@@ -159,6 +161,8 @@ app.post("/api/order", (req, res) => {
         console.error(e);
         res.send(e);
       });
+
+  runTwilio();
 })
 
 /* ————————————————————————— SERVER LISTEN ————————————————————————— */

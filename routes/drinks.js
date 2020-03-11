@@ -1,3 +1,8 @@
+/**
+ * The following route gets all values from the drinks table in POSTGRES-SQL and returns them as a JSON when the user
+ * navigates to /api/drinks.
+**/
+
 const express = require('express');
 const router  = express.Router();
 

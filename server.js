@@ -79,18 +79,19 @@ app.use("/api/drinks", drinksRoutes(db));
 app.use("/api/order", orderRoutes(db));
 
 /* ————————————————————————— HELPER FUNCTIONS ————————————————————————— */
+
 const generateRandomString = function() {
   let result = '';
   let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
   for (let i = 0; i < 6; i++) {
     result += characters.charAt(Math.floor(Math.random() * characters.length));
   }
+
   return result;
 };
 
 const updateOrderTable = function(currentOrder) {
-  console.log(currentOrder);
-
   let queryString = `INSERT INTO orders (owner_id, item_name, item_price,item_quantity)
   VALUES
   `;
@@ -104,9 +105,6 @@ const updateOrderTable = function(currentOrder) {
       ${currentOrder['itemsInTheOrder'][i].price * 100},
       ${currentOrder['itemsInTheOrder'][i].quantity})
       `;
-
-    console.log(queryString);
-
     } else {
       queryString +=
       `
@@ -115,10 +113,7 @@ const updateOrderTable = function(currentOrder) {
       ${currentOrder['itemsInTheOrder'][i].price * 100},
       ${currentOrder['itemsInTheOrder'][i].quantity}),
       `;
-
-      console.log(queryString);
     }
-
   }
 
   queryString +=

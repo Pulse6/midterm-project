@@ -15,14 +15,14 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
 
   ),
   (
-    'Shepherds Pie',
+    'Shepherd Pie',
     'From the bounty of the fields we''ve all ''borrowed'' from, but this time with his approval: Farmer Maggot Shepherd''s pie will not dissapoint.',
     'entrees',
     '/images/shepherds-pie.jpg',
     1499
   ),
   (
-    'Chefs Curry',
+    'Chef Curry',
     'While we Hobbits don''t normally hold well with foreign food this spicy curry from the East came to us back when Old Bilbo turned up not dead. Now we still don''t reckon much for travelling see, but this here is a mighty fine dish that many a Gaffer has taken too and you should too!',
     'entrees',
     '/images/rustic-curry.jpg',

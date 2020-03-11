@@ -2,19 +2,110 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>The Second Breakfast Club</title>
-
-  <h1>yoooooooo</h1>
-
-  <link href="/css/style.css" rel="stylesheet" />
+  <link href="/css/order-style.css" rel="stylesheet" />
+  <link href="/css/cart.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet" />
+  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" >
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
 </head>
 
 <body>
+  <div class="container">
+    <!-- Top-Header Container -->
+    <div class="placeholder">
+      <!-- Parallax Video Container  -->
+      <div class="parallax-window" data-parallax="scroll" data-image-src="/assets/video/green-hills.mp4">
 
-</body>
+        <div class="picture">
+          <img src="/assets/img/the-second-breakfast-club-the-boys.png" alt="Logo" class="site-picture" />
+        </div>
 
-</html>
+        <!-- Main Header Container  -->
+        <div class="header">
+          <div class="row header-inner">
+            <div class="col-md-6 col-12">
+              <img src="/assets/img/the-second-breakfast-club-title.png" alt="Logo" class="site-logo" />
+            </div>
+
+            <!-- Navbar Container  -->
+            <nav class="col-md-6 col-12 nav">
+              <ul class="nav-ul">
+                <li class="nav-li"><a href="index" class="nav-link active">Menu</a></li>
+                <li class="nav-li"><a href="order" class="nav-link">Order</a></li>
+                <li class="nav-li"><a href="#" id="cart" class="nav-link"><i class="fa fa-shopping-cart"></i> Cart <span
+                      class="badge-outer">0</span></a></li>
+              </ul>
+            </nav>
+            <!-- /Navbar Container  -->
+
+            <!-- Order Cart Container -->
+            <div class="shopping-cart">
+              <!-- Order Cart: Header-->
+              <div class="shopping-cart-header">
+                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge-inner"></span>
+                <div class="shopping-cart-total">
+                  <span class="lighter-text">Total:</span>
+                  <span class="main-color-text">$0.00</span>
+                </div>
+              </div>
+              <!-- /Order Cart: Header-->
+
+              <!-- Order Cart: Items-->
+              <ul class="shopping-cart-items"></ul>
+              <!-- /Order Cart: Items-->
+              <a href="#" class="button">ORDER</a>
+            </div>
+            <!-- /Order Cart Container -->
+          </div>
+        </div>
+        <!-- /Main Header Container  -->
+      </div>
+      <!-- /Parallax Video Container  -->
+    </div>
+    <!-- /Top-Header Container  -->
+
+    <!-- Main Container  -->
+    <main>
+
+      <!-- Welcome Header  -->
+      <header class="row welcome-section">
+        <h1 class="col-12 text-center section-title">Order Complete!</h1>
+        <h2 id="countdown-timer"></h2>
+        <p class="col-12 text-center">We have a magical realm guarantee of 25 minutes or less. Whether you're coming
+          from the neighbourhood or from the North Pole—we'll have it ready!</p>
+      </header>
+      <!-- /Welcome Header  -->
+
+
+      <!-- Map Container-->
+      <div class="container-inner-2 map-section">
+        <div class="row">
+          <div class="col-12">
+            <div class="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11196.961132529668!2d-43.38581128725845!3d-23.011063013218724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bdb695cd967b7%3A0x171cdd035a6a9d84!2sAv.%20L%C3%BAcio%20Costa%20-%20Barra%20da%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%20Brazil!5e0!3m2!1sen!2sth!4v1568649412152!5m2!1sen!2sth"
+                frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Map Container-->
+
+
+    </main>
+    <!-- /Main Container  -->
+
+    <!-- Footer  -->
+    <footer class="footer text-center">
+      <p>The Second Breakfast Club&trade; | Made with 💚 by:
+        <a style="text-decoration: underline;" href="https://www.github.com/shaheeriam">Shaheer</a>,
+        <a style="text-decoration: underline;" href="https://github.com/Pulse6">Marco</a>, and
+        <a style="text-decoration: underline;" href="https://github.com/lynchseb">Sebastian</a>
+      </p>
+    </footer>
+    <!-- /Footer  -->

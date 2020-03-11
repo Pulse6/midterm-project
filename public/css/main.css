@@ -1,3 +1,10 @@
+/* #borderimg1 {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(/assets/img/ivy-border.png) 50 round;
+}
+
+
 body {
   font-family: 'MedievalSharp', sans-serif;
   background-color: #994343;
@@ -193,4 +200,4 @@ menu p {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */

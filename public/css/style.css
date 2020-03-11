@@ -540,6 +540,12 @@ p, address {
 
 .description-figure {
   text-align: center;
+  height: 100%;
+}
+
+.description-figure img {
+  max-width: 100%;
+  height: auto;
 }
 
 .description-box {
@@ -949,4 +955,111 @@ address {
 
 .panel p {
   padding: 5px 20px 30px;
+}
+
+#clear {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  height: 50px;
+  width: 50px;
+  z-index: 99999;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hide-clear {
+  display: none;
+}
+
+.spin {
+  border-radius: 100px;
+  animation: baby-360 2s infinite;
+}
+
+@keyframes baby-360 {
+  0%, 100% {transform: rotate(0deg) }
+  50% { transform: rotate(360deg) }
+}
+
+.gifs-dog {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  max-width: 400px;
+}
+
+.gifs-sim {
+  position: fixed;
+  animation: alltheway 1s infinite;
+  height: 300px;
+}
+
+.gifs-dance {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+}
+
+@keyframes alltheway {
+  0% {transform: rotate(0deg) }
+  /* 50% { transform: rotate(180deg) } */
+  100% { transform: rotate(360deg) }
+}
+
+.gifs-girl {
+  position: fixed;
+  bottom: 10px;
+  right: 20%;
+  height: 250px;
+}
+
+.gifs-thatguy {
+  position: fixed;
+  top: 0;
+  right: 15%;
+}
+
+.gifs-banana {
+  position: fixed;
+  top: 20%;
+  right: 25%;
+  height: 250px;
+  animation: banana 6s infinite;
+}
+
+@keyframes banana {
+  0%, 100% {right: -30%;
+  top: 10%;}
+  /* 50% { transform: rotate(180deg) } */
+  50% { right: 130%;
+  top: 80%;}
+}
+
+.gifs-eye {
+  position: fixed;
+  right: 25%;
+  bottom: 25%;
+}
+
+.gifs-potin {
+  position: fixed;
+  top: 50%;
+  left: 5%;
+  height: 200px;
+}
+
+.gifs-realdog {
+  position: fixed;
+  bottom: 50%;
+  right: 60%;
+  animation: move 3s infinite;
+}
+
+@keyframes move {
+  0%, 100% {top: 0; }
+  /* 50% { transform: rotate(180deg) } */
+  50% { top: 100%; }
 }

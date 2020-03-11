@@ -127,8 +127,11 @@ const removeCartItem = () => {
     const price = parseInt(target.find(".item-price").text().slice(1) * 100);
     const amount = parseInt(target.find(".item-quantity").find(".item-count").text());
     const currentTot = parseInt($(".main-color-text").text().slice(1) * 100);
-    const newtot = (currentTot - (amount * price)) / 100;
-
+    let newtot = (currentTot - (amount * price)) / 100;
+    if (newtot <= 0) {
+      newtot = 0;
+      $('.shopping-cart').hide();
+    }
     $(".main-color-text").text("$" + newtot);
     let totalOrders = parseInt($('.badge-outer').text());
     totalOrders -= amount;
@@ -238,6 +241,37 @@ const postOrderAndRedirect = () => {
   });
 };
 
+const wtf = () => {
+  $("body").on("click", ".this-shit", function(event) {
+    $("#clear").removeClass('hide-clear');
+    $(".img-fluid").addClass('spin');
+    $(".gifs-dog").removeClass('hide-clear');
+    $(".gifs-sim").removeClass('hide-clear');
+    $(".gifs-dance").removeClass('hide-clear');
+    $(".gifs-girl").removeClass('hide-clear');
+    $(".gifs-thatguy").removeClass('hide-clear');
+    $(".gifs-banana").removeClass('hide-clear');
+    $(".gifs-eye").removeClass('hide-clear');
+    $(".gifs-potin").removeClass('hide-clear');
+    $(".gifs-realdog").removeClass('hide-clear');
+  });
+};
+
+const nowtf = () => {
+  $("body").on("click", "#clear", function(event) {
+    $("#clear").addClass('hide-clear');
+    $(".img-fluid").removeClass('spin');
+    $(".gifs-dog").addClass('hide-clear');
+    $(".gifs-sim").addClass('hide-clear');
+    $(".gifs-dance").addClass('hide-clear');
+    $(".gifs-girl").addClass('hide-clear');
+    $(".gifs-thatguy").addClass('hide-clear');
+    $(".gifs-banana").addClass('hide-clear');
+    $(".gifs-eye").addClass('hide-clear');
+    $(".gifs-potin").addClass('hide-clear');
+    $(".gifs-realdog").addClass('hide-clear');
+  });
+};
 
 /* ————————————————————————— DOCUMENT.READY ————————————————————————— */
 
@@ -255,4 +289,7 @@ $(function() {
   updateCartBadgeValues();
   updateCartTotalPrice();
   removeCartItem();
+
+  wtf()
+  nowtf()
 });

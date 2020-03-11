@@ -1,12 +1,6 @@
-const e = require("express");
+/* ————————————————————————— NAVBAR INTERACTIONS ————————————————————————— */
 
-/* ————————————————————————— CART INTERACTIONS ————————————————————————— */
-
-// REMOVE CART ON LOAD \\
-const removeCartButtonOnLoad = () => {
-  $('.order-page-cart').hide();
-};
-
+// PREVENT THE ORDER BUTTON FROM REFRESHING THE PAGE \\
 const preventOrderButtonRefresh = () => {
   $('.order-button').click(function(event){
     event.preventDefault();
@@ -62,6 +56,6 @@ const postOrderAndRedirect = () => {
 // NOTE: Order of the functions below matters! AJAX requests first, then the rest.
 
 $(function() {
-  removeCartButtonOnLoad();
+  // removeCartButtonOnLoad();
   preventOrderButtonRefresh();
 });

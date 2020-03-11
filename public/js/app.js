@@ -21,6 +21,9 @@ const setLocalStorage = item => {
   for (let i = 0; i < order.length; i++) {
     if (item.name === order[i].name) {
       order[i].quantity++;
+      const trimmedPrice = (order[i].price + price).toFixed(2);
+      let finalPrice = Number(trimmedPrice);
+      order[i].price = finalPrice;
       orderIsUnique = false;
     }
   }

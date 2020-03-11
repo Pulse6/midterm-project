@@ -7,7 +7,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
 
-// NODE MODULES \\
+// NODE MODULE DEPENDENCIES \\
 const express       = require('express');
 const app           = express();
 const sass          = require('node-sass-middleware');

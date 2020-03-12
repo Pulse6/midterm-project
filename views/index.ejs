@@ -75,7 +75,10 @@
               </ul>
               <!-- /Order Cart: Items-->
               <form action="/order" method="POST">
-                <button class="button">ORDER</button>
+                        <button id="btnSubmit" class="button" runat="server" OnClick="btnSubmit_Click" Text="Order">Order</button>
+                        <button id="divMsg" class="button" style="display:none; padding: 2px;">
+                          <img class="loadImg" src="/assets/img/loadCircle.png" alt="Please wait.."/>
+                        </button>
               </form>
             </div>
             <!-- /Order Cart Container -->

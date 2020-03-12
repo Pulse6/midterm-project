@@ -161,3 +161,20 @@ width: 80%;
   display: table;
   clear: both;
 }
+
+.loadImg {
+  height: 35px;
+  animation: baby-360 1.5s infinite;
+}
+
+@keyframes baby-360 {
+  100% { transform: rotate(360deg) }
+}
+
+#btnSubmit {
+  font-family: "MedievalSharp", sans-serif;
+}
+
+#divMsg {
+  padding: none;
+}

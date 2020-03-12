@@ -242,7 +242,9 @@ const postOrderAndRedirect = () => {
       url: "/api/order",
       data: { order }
     }).done(() => {
+      setTimeout(function(){
       window.location.replace('/order');
+      }, 2500);
     })
   });
 };
@@ -325,3 +327,10 @@ window.onunload = () => {
   // Clear the local storage
   localStorage.removeItem('order');
 }
+
+// load animation
+
+$('#btnSubmit').click(function(){
+    $('#divMsg').show();
+    $('#btnSubmit').hide();
+});

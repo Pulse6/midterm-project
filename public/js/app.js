@@ -241,7 +241,7 @@ const postOrderAndRedirect = () => {
       method: "POST",
       url: "/api/order",
       data: { order }
-    }).done((res) => {
+    }).done(() => {
       window.location.replace('/order');
     })
   });

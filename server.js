@@ -126,7 +126,7 @@ const updateOrderTable = function(currentOrder) {
     `;
 
   return db.query(queryString)
-    .then(res => res.rows[0]);
+    .then(res => res.rows);
 };
 
 /* ————————————————————————— ROUTING ————————————————————————— */
@@ -156,13 +156,16 @@ app.post("/api/order", (req, res) => {
   const currentOrder = req.body.order;
 
   updateOrderTable({owner_id: req.session.userID, itemsInTheOrder: currentOrder})
-    .then(cartOrder => { res.send(cartOrder); })
+    .then(cartOrder => {
+      // console.log("My console Log -> ", cartOrder);
+      runTwilio(cartOrder);
+      res.send(cartOrder);
+    })
     .catch(e => {
         console.error(e);
         res.send(e);
       });
 
-  runTwilio();
 })
 
 /* ————————————————————————— SERVER LISTEN ————————————————————————— */

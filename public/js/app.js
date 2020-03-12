@@ -237,15 +237,21 @@ const postOrderAndRedirect = () => {
   $("body").on("click", ".button", function(event) {
     event.preventDefault();
     let order = JSON.parse(localStorage.getItem('order'));
+    if (order === null || undefined || order.length === 0){
+      alert("Please add items to your cart before ordering.")
+    } else {
     $.ajax({
       method: "POST",
       url: "/api/order",
       data: { order }
     }).done(() => {
+        $('#divMsg').show();
+        $('#btnSubmit').hide();
       setTimeout(function(){
       window.location.replace('/order');
       }, 2500);
     })
+  }
   });
 };
 
@@ -330,7 +336,4 @@ window.onunload = () => {
 
 // load animation
 
-$('#btnSubmit').click(function(){
-    $('#divMsg').show();
-    $('#btnSubmit').hide();
-});
+

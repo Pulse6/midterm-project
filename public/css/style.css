@@ -1114,3 +1114,7 @@ address {
   flex-direction: column;
   align-items: center;
 }
+
+.audioBox {
+  outline: none;
+}

@@ -312,7 +312,7 @@ $(function() {
   nowtf()
 });
 
-// scroll top buton
+// Scroll Top Button
 
 $(window).scroll(function() {
   if ($(this).scrollTop() > 700) {
@@ -329,10 +329,13 @@ $("#topBtn").click(function() {
 
 });
 
+// Clear local storage on refresh or browser quit
+
 window.onunload = () => {
-  // Clear the local storage
   localStorage.removeItem('order');
 }
+
+// Embedded audio for Hobbiton Easter Egg
 
 const myAudio = document.getElementById("myAudio");
 let isPlaying = false;

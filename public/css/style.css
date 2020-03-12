@@ -1104,6 +1104,7 @@ address {
 #topBtn button {
   border: none;
   outline: none;
+  background: none;
 }
 #topBtn p {
   font-size: 12.5px;
@@ -1115,6 +1116,8 @@ address {
   align-items: center;
 }
 
-.audioBox {
-  outline: none;
-}
+/* .hobbitonAudio {
+  cursor: pointer;
+} */
+
+

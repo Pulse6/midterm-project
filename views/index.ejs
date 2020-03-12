@@ -33,10 +33,11 @@
     <!-- Top-Header Container -->
     <div class="placeholder">
       <!-- Parallax Video Container  -->
-      <div class="parallax-window" data-parallax="scroll" data-image-src="/assets/video/green-hills.mp4">
+      <div class="parallax-window" data-parallax="scroll" autoplay data-image-src="/assets/video/grass-video.mp4">
 
         <div class="picture">
           <img src="/assets/img/the-second-breakfast-club-the-boys.png" alt="Logo" class="site-picture" />
+
         </div>
 
         <!-- Main Header Container  -->
@@ -98,6 +99,7 @@
         <h2 class="col-12 text-center section-title">Welcome to the Second Breakfast Club</h2>
         <p class="col-12 text-center">A place to rest in between your journey. We made our website as simple possible,
           so you can focus less on moving around and more on getting the food you want!</p>
+          <p class="col-12 text-center">Now sit back and enjoy the sounds and sights of <span class="hobbitonAudio"><a onClick="togglePlay()">Hobbiton</a></span></p>
       </header>
       <!-- /Welcome Header  -->
 
@@ -158,10 +160,12 @@
         <a style="text-decoration: underline;" href="https://github.com/Pulse6">Marco</a>, and
         <a style="text-decoration: underline;" href="https://github.com/lynchseb">Sebastian</a>
       </p>
-      <audio class="audioBox" autoplay loop controls >
-        <source src="/assets/audio/hobbit-audio-trim.mp3" type="audio/mp3">
-        <!-- <p>Your browser doesn't support HTML5 audio. Here is a <a href="viper.mp3">link to the audio</a> instead.</p> -->
-      </audio>
+
+
+          <audio id="myAudio" src="/assets/audio/hobbit-audio-trim.mp3" preload="auto">
+          </audio>
+
+
     </footer>
     <!-- /Footer  -->
 

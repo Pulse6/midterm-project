@@ -240,13 +240,13 @@ const postOrderAndRedirect = () => {
     if (order === null || undefined || order.length === 0){
       alert("Please add items to your cart before ordering.")
     } else {
+      $('#divMsg').show();
+      $('#btnSubmit').hide();
     $.ajax({
       method: "POST",
       url: "/api/order",
       data: { order }
     }).done(() => {
-        $('#divMsg').show();
-        $('#btnSubmit').hide();
       setTimeout(function(){
       window.location.replace('/order');
       }, 2500);
@@ -334,6 +334,21 @@ window.onunload = () => {
   localStorage.removeItem('order');
 }
 
-// load animation
+const myAudio = document.getElementById("myAudio");
+let isPlaying = false;
+
+function togglePlay() {
+  if (!isPlaying) {
+    myAudio.play()
+  } else {
+    myAudio.pause();
+  }
+};
+myAudio.onplay = function() {
+  isPlaying = true;
+};
+myAudio.onpause = function() {
+  isPlaying = false;
+};
 
 

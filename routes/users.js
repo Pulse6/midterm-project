@@ -1,9 +1,8 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
+/**
+ * The following route gets all values from the users table in POSTGRES-SQL and returns them as a JSON when the user
+ * navigates to /api/users.
+**/
+
 
 const express = require('express');
 const router  = express.Router();

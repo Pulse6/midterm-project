@@ -1,0 +1,133 @@
+li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.cart-sections {
+  width: 100%;
+  height: 100%;
+  display: table;
+  position: absolute;
+  left: 0;
+  -webkit-transition: all .25s;
+  -webkit-text-size-adjust: 100%;
+  -moz-transition: all .25s;
+  -ms-transition: all .25s;
+  -o-transition: all .25s;
+  transition: all 0.25s;
+  letter-spacing: -0.02em;
+  color: #262626;
+  line-height: 1.15;
+  font-size: 100%;
+}
+.cart-sections > .cart-section {
+  width: 50%;
+  height: 100%;
+  display: table-cell;
+  position: relative;
+}
+.current-section__cart .cart-sections {
+  left: 0;
+}
+.current-section__favorites .cart-sections {
+  left: -100%;
+}
+.cart-list {
+  list-style-type: none;
+  padding: 1.25em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cart-list-item {
+  width: 50%;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 1.25em;
+  position: relative;
+  left: 25%;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 2px solid #4E9270;
+}
+.cart-list-item .cart-item-img {
+  width: 100%;
+  padding-bottom: 100%;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.cart-list-item .cart-item {
+  width: 100%;
+  height: 5em;
+  display: table;
+}
+.cart-list-item .cart-item > div {
+  position: relative;
+  display: table-cell;
+}
+.cart-list-item .cart-item .cart-item-description > span {
+  position: absolute;
+  padding: 0 1.5em;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.cart-list-item .cart-item .cart-item-description .cart-item-label {
+  line-height: 1.3em;
+  max-height: 2.6em;
+  font-size: .875em;
+  overflow: hidden;
+  color: #262626;
+}
+.cart-list-item .cart-item .cart-item-description .cart-item-price {
+  font-size: .75em;
+  color: #a8a8b2;
+  margin-top: 0.125em;
+}
+
+@media screen and (min-width: 22.5em) {
+  .cart-list-item .cart-item .cart-item-description .cart-item-label {
+    font-size: 1em;
+  }
+  .cart-list-item .cart-item .cart-item-description .cart-item-price {
+    font-size: 0.875em;
+  }
+}
+@media screen and (min-width: 26.25em) {
+  .cart-wrapper {
+    padding-left: 4em;
+  }
+  .cart-header .tab-label {
+    font-size: 1em;
+  }
+  .cart-header .tab-ic {
+    vertical-align: top;
+    margin-right: 6px;
+    background-size: 19px 19px;
+    width: 19px;
+    height: 19px;
+  }
+  .cart-list-item {
+    height: 5em;
+    margin-bottom: .125em;
+    display: table;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .cart-list-item > div {
+    display: table-cell;
+  }
+  .cart-list-item .cart-item-img {
+    width: 5em;
+    padding: 0;
+  }
+}

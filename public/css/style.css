@@ -183,7 +183,8 @@ html {
 }
 
 .img-fluid {
-  max-width: 100%;
+  min-width: 200px;
+  max-width: 200px;
   height: auto;
   border-radius: 3%;
   max-height: 186px;
@@ -192,7 +193,8 @@ html {
 body {
   font-family: 'MedievalSharp', Arial, sans-serif;
   font-size: 17px;
-  background-color: #ccc;
+  background-color: white;
+  /* was #ccc */
   /* overflow-x: hidden;
   overflow-y: hidden;
   overflow: hidden; */
@@ -279,7 +281,7 @@ p, address {
   display: inline-block;
   margin-right: 5px;
   /* new */
-  max-width: 40%;
+  max-width: 250px;
   height: auto;
   /* new */
 }
@@ -406,7 +408,10 @@ p, address {
 }
 
 .gallery-item {
-  max-width: 280px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 100%;
+  /* 280px */
 }
 
 .gallery-img {
@@ -423,6 +428,16 @@ p, address {
 
 .gallery-description {
   margin-bottom: 20px;
+}
+
+.menu-item-position {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-item-position figcaption {
+  padding: 10px;
 }
 
 /* ///////////////////// */
@@ -525,6 +540,12 @@ p, address {
 
 .description-figure {
   text-align: center;
+  height: 100%;
+}
+
+.description-figure img {
+  max-width: 100%;
+  height: auto;
 }
 
 .description-box {
@@ -934,4 +955,171 @@ address {
 
 .panel p {
   padding: 5px 20px 30px;
+}
+
+#clear {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  height: 50px;
+  width: 50px;
+  z-index: 99999;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hide-clear {
+  display: none;
+}
+
+.spin {
+  border-radius: 100px;
+  animation: baby-360 2s infinite;
+}
+
+@keyframes baby-360 {
+  0%, 100% {transform: rotate(0deg) }
+  50% { transform: rotate(360deg) }
+}
+
+.gifs-dog {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  max-width: 400px;
+}
+
+.gifs-sim {
+  position: fixed;
+  animation: alltheway 1s infinite;
+  height: 300px;
+}
+
+.gifs-dance {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+}
+
+@keyframes alltheway {
+  0% {transform: rotate(0deg) }
+  /* 50% { transform: rotate(180deg) } */
+  100% { transform: rotate(360deg) }
+}
+
+.gifs-girl {
+  position: fixed;
+  bottom: 10px;
+  right: 20%;
+  height: 250px;
+}
+
+.gifs-thatguy {
+  position: fixed;
+  top: 0;
+  right: 15%;
+}
+
+.gifs-banana {
+  position: fixed;
+  top: 20%;
+  right: 25%;
+  height: 250px;
+  animation: banana 6s infinite;
+}
+
+@keyframes banana {
+  0%, 100% {right: -30%;
+  top: 10%;}
+  /* 50% { transform: rotate(180deg) } */
+  50% { right: 130%;
+  top: 80%;}
+}
+
+.gifs-eye {
+  position: fixed;
+  right: 25%;
+  bottom: 25%;
+}
+
+.gifs-potin {
+  position: fixed;
+  top: 50%;
+  left: 5%;
+  height: 200px;
+}
+
+.gifs-realdog {
+  position: fixed;
+  bottom: 50%;
+  right: 60%;
+  animation: move 3s infinite;
+}
+
+.gifs-hobbits {
+  position: fixed;
+  bottom: 50px;
+  right: 50%;
+  animation: moveBottom 8s infinite;
+
+}
+
+.gifs-batman {
+  position: fixed;
+  top: 50px;
+  right: 10%;
+  animation: move 8s infinite;
+}
+
+@keyframes move {
+  0%, 100% {top: 0; }
+  /* 50% { transform: rotate(180deg) } */
+  50% { top: 100%; }
+}
+
+@keyframes moveBottom {
+  0%, 100% {bottom: 0; }
+  /* 50% { transform: rotate(180deg) } */
+  50% { bottom: 100%; }
+}
+
+#topBtn  {
+  position: fixed;
+  bottom: 40px;
+  right: 60px;
+  display: none;
+  z-index: 1000;
+  border: none;
+  outline: none;
+}
+#topBtn img {
+  font-size: 50px;
+  width: auto;
+  height: 75px;
+  outline: none;
+  cursor: pointer;
+}
+#topBtn button {
+  border: none;
+  outline: none;
+  background: none;
+}
+#topBtn p {
+  font-size: 12.5px;
+}
+
+#topBtn .buttonFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .hobbitonAudio {
+  cursor: pointer;
+} */
+
+html {
+  scroll-behavior: smooth;
 }

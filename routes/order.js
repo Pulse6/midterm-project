@@ -1,19 +1,21 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
+/**
+ * The following route gets all values from the orders table given a user ID in POSTGRES-SQL and returns them as a
+ * JSON when the user navigates to /api/order.
+**/
 
 const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/order", (req, res) => {
-    db.query(`SELECT * FROM order WHERE user_id = users(id)`)
+  router.get("/", (req, res) => {
+    const ownerId = req.session.userID
+    // console.log(ownerId)
+    db.query(`SELECT * FROM orders WHERE owner_id = '${ownerId}';`)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        // console.log(data)
+        const orders = data.rows;
+        res.json({ orders });
+        // console.log(orders)
       })
       .catch(err => {
         res

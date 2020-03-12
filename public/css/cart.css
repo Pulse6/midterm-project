@@ -62,8 +62,8 @@ width: 80%;
 .shopping-cart {
   display: block;
   position: absolute;
-  top: 83px;
-  left: 793px;
+  top: 60%;
+  left: 55%;
   margin: 20px 0;
   float: right;
   background: white;
@@ -125,6 +125,7 @@ width: 80%;
   float: left;
 }
 .button {
+  border: none;
   background: #77AB91;
   color: white;
   text-align: center;
@@ -133,6 +134,7 @@ width: 80%;
   display: block;
   border-radius: 3px;
   font-size: 16px;
+  width: 100%;
   /* margin: 25px 0 15px 0; */
 }
 .button:hover {
@@ -158,4 +160,23 @@ width: 80%;
   content: "";
   display: table;
   clear: both;
+}
+
+.loadImg {
+  height: 35px;
+  animation: baby-360 1.5s infinite;
+}
+
+@keyframes baby-360 {
+  100% { transform: rotate(360deg) }
+}
+
+#btnSubmit {
+  font-family: "MedievalSharp", sans-serif;
+  outline: none;
+}
+
+#divMsg {
+  padding: none;
+  outline: none;
 }

@@ -9,6 +9,7 @@
   <link href="/css/style.css" rel="stylesheet" />
   <link href="/css/cart.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/00423a3f1e.js" crossorigin="anonymous"></script>
   <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" >
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
@@ -16,14 +17,27 @@
 </head>
 
 <body>
+  <div id="clear" class="hide-clear"></div>
+  <img class="gifs-dog hide-clear" src="https://i.ya-webdesign.com/images/dancing-gifs-png-7.gif" alt="">
+  <img class="gifs-sim hide-clear" src="https://i.ya-webdesign.com/images/funny-gif-png-2.gif" alt="">
+  <img class="gifs-dance hide-clear" src="https://i.gifer.com/7Uw.gif" alt="">
+  <img class="gifs-girl hide-clear" src="https://i.gifer.com/XqyP.gif" alt="">
+  <img class="gifs-thatguy hide-clear" src="https://i.gifer.com/14Um.gif" alt="">
+  <img class="gifs-banana hide-clear" src="https://i.gifer.com/4Snl.gif" alt="">
+  <img class="gifs-eye hide-clear" src="https://i.gifer.com/2GY.gif" alt="">
+  <img class="gifs-potin hide-clear" src="https://i.gifer.com/y4.gif" alt="">
+  <img class="gifs-realdog hide-clear" src="https://i.gifer.com/YaDd.gif" alt="">
+  <img class="gifs-hobbits hide-clear" src="https://i.gifer.com/7CY6.gif" alt="">
+  <img class="gifs-batman hide-clear" src="https://i.gifer.com/6DYm.gif" alt="">
   <div class="container">
     <!-- Top-Header Container -->
     <div class="placeholder">
       <!-- Parallax Video Container  -->
-      <div class="parallax-window" data-parallax="scroll" data-image-src="/assets/video/green-hills.mp4">
+      <div class="parallax-window" data-parallax="scroll" autoplay data-image-src="/assets/video/grass-video.mp4">
 
         <div class="picture">
           <img src="/assets/img/the-second-breakfast-club-the-boys.png" alt="Logo" class="site-picture" />
+
         </div>
 
         <!-- Main Header Container  -->
@@ -36,8 +50,8 @@
             <!-- Navbar Container  -->
             <nav class="col-md-6 col-12 nav">
               <ul class="nav-ul">
-                <li class="nav-li"><a href="index.ejs" class="nav-link active">Menu</a></li>
-                <li class="nav-li"><a href="order.ejs" class="nav-link">Order</a></li>
+                <li class="nav-li"><a href="#mainMenu" class="nav-link active">Menu</a></li>
+                <!-- <li class="nav-li"><a href="order" class="nav-link">Order</a></li> -->
                 <li class="nav-li"><a href="#" id="cart" class="nav-link"><i class="fa fa-shopping-cart"></i> Cart <span
                       class="badge-outer">0</span></a></li>
               </ul>
@@ -58,30 +72,15 @@
 
               <!-- Order Cart: Items-->
               <ul class="shopping-cart-items">
-                <!-- <li class="clearfix">
-                  <img src="/assets/gallery/01.jpg" alt="item1" />
-                  <span class="item-name">Halibut</span>
-                  <span class="item-price">$849.99</span>
-                  <span class="item-quantity">Quantity: 01</span>
-                  <span class="item-remove">X</span>
-                </li>
-
-                <li class="clearfix">
-                  <img src="/assets/gallery/02.jpg" alt="item1" />
-                  <span class="item-name">Salad Item</span>
-                  <span class="item-price">$1,249.99</span>
-                  <span class="item-quantity">Quantity: 01</span>
-                </li>
-
-                <li class="clearfix">
-                  <img src="/assets/gallery/03.jpg" alt="item1" />
-                  <span class="item-name">Fried Dragon</span>
-                  <span class="item-price">$129.99</span>
-                  <span class="item-quantity">Quantity: 01</span>
-                </li> -->
+                <!-- cart item adds in here -->
               </ul>
               <!-- /Order Cart: Items-->
-              <a href="#" class="button">ORDER</a>
+              <form action="/order" method="POST">
+                        <button id="btnSubmit" class="button" runat="server" Text="Order">Order</button>
+                        <button id="divMsg" class="button" style="display:none; padding: 2px;">
+                          <img class="loadImg" src="/assets/img/loadCircle.png" alt="Please wait.."/>
+                        </button>
+              </form>
             </div>
             <!-- /Order Cart Container -->
           </div>
@@ -96,10 +95,10 @@
     <main>
 
       <!-- Welcome Header  -->
-      <header class="row welcome-section">
+      <header id="mainMenu" class="row welcome-section">
         <h2 class="col-12 text-center section-title">Welcome to the Second Breakfast Club</h2>
-        <p class="col-12 text-center">A place to rest in between your journey. We made our website as simple possible,
-          so you can focus less on moving around and more on getting the food you want!</p>
+        <p class="col-12 text-center">A place to rest in between your journeys. We made our website as simple possible, so you can focus less on moving around and more on getting the food you want</p>
+          <p class="col-12 text-center">Now sit back and enjoy the sights and sounds of <span class="hobbitonAudio"><a onClick="togglePlay()">Hobbiton</a></span></p>
       </header>
       <!-- /Welcome Header  -->
 
@@ -119,74 +118,7 @@
 
       <!-- Gallery Container  -->
       <div class="row gallery">
-
-        <!-- Gallery Category 1  -->
-        <!-- <div id="gallery-page-pizza" class="gallery-page">
-          <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
-            <figure>
-              <img src="/assets/gallery/01.jpg" alt="Image" class="img-fluid gallery-img" />
-              <figcaption>
-                <h4 class="gallery-title">Pizzaiolo Pizza</h4>
-                <p class="gallery-description">The bestest bestier best best pizza anyone has ever sawed!</p>
-              </figcaption> -->
-        <!-- Add to Order Button -->
-        <!-- <button class="add-to-order-top-container">
-                <div class="add-to-order-container">
-                  <div class="wrap">
-                    <div class="add-to-order-button">Add to Order</div>
-                    <div class="add-to-order-price">$129.99</div>
-                  </div>
-                </div>
-              </button>
-              /Add to Order Button
-            </figure>
-          </article>
-        </div> -->
-        <!-- /Gallery Category 1  -->
-
-        <!-- Gallery Category 2  -->
-        <!-- <div id="gallery-page-salad" class="gallery-page hidden">
-          <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
-            <figure>
-              <img src="/assets/gallery/02.jpg" alt="Image" class="img-fluid gallery-img" />
-              <figcaption>
-                <h4 class="gallery-title">Salad Item</h4>
-                <p class="gallery-description">We only kept this item in because it's locally sourced.</p>
-              </figcaption> -->
-        <!-- Add to Order Button -->
-        <!-- <div class="add-to-order-container">
-                <div class="wrap">
-                  <div class="add-to-order-button">Add to Order</div>
-                  <div class="add-to-order-price">$9.99</div>
-                </div>
-              </div> -->
-        <!-- /Add to Order Button -->
-        <!-- </figure>
-          </article>
-        </div> -->
-        <!-- /Gallery Category 2  -->
-
-        <!-- Gallery Category 3  -->
-        <!-- <div id="gallery-page-noodle" class="gallery-page hidden"> -->
-        <!-- <article class="col-lg-3 col-md-4 col-sm-6 col-12 gallery-item">
-            <figure>
-              <img src="/assets/gallery/03.jpg" alt="Image" class="img-fluid gallery-img" />
-              <figcaption>
-                <h4 class="gallery-title">Po's Noodle</h4>
-                <p class="gallery-description">Yes, that Po. He's taken over the family business.</p>
-              </figcaption> -->
-        <!-- Add to Order Button -->
-        <!-- <div class="add-to-order-container">
-                <div class="wrap">
-                  <div class="add-to-order-button">Add to Order</div>
-                  <div class="add-to-order-price">$9.99</div>
-                </div>
-              </div> -->
-        <!-- /Add to Order Button -->
-        <!-- </figure>
-          </article> -->
-        <!-- </div> -->
-        <!-- /Gallery Category 3  -->
+        <!-- menu item adds in here -->
       </div>
       <!-- /Gallery Container  -->
 
@@ -195,21 +127,25 @@
         <div class="row">
           <div class="col-md-6">
             <figure class="description-figure">
-              <img src="/assets/img/hobbiton.jpeg" alt="Image" class="img-fluid" />
+              <img class="this-shit" src="/assets/img/hobbiton.jpeg" alt="Image" class="img-fluid" />
             </figure>
           </div>
           <div class="col-md-6">
             <div class="description-box">
-              <h4 class="gallery-title">The Second Brekfast Club -Hobbiton, The Shire</h4>
-              <p class="mb-45"> Welcome to the Second Breakfast Club - Brought to you by Master Peregrin Took and
-                Meriadoc Brandybuck </p>
+              <h4 class="gallery-title">The Second Breakfast Club -Hobbiton, The Shire</h4>
+              <p class="mb-45"> Welcome to the Second Breakfast Club - Brought to you by Masters Peregrin Took and Meriadoc Brandybuck</p>
               <p>
-                Whether you come from near or from far all who travel the King's road to our humble abode will find
-                rest, warmth, good-food and old fashioned Hobbit cheer</p>
+                Whether you come from near or far all who travel the King's road to our humble abode will find rest, warmth, good-food and old fashioned Hobbit cheer</p>
             </div>
           </div>
         </div>
       </div>
+      <div id="topBtn">
+        <div class="buttonFlex">
+          <button><img src="/assets/img/topButtonImg.png"></i></button>
+          <p>Top</p>
+        </div>
+          </div>
       <!-- /Food of the Day -->
     </main>
     <!-- /Main Container  -->
@@ -221,6 +157,12 @@
         <a style="text-decoration: underline;" href="https://github.com/Pulse6">Marco</a>, and
         <a style="text-decoration: underline;" href="https://github.com/lynchseb">Sebastian</a>
       </p>
+
+
+          <audio id="myAudio" src="/assets/audio/hobbit-audio-trim.mp3" preload="auto">
+          </audio>
+
+
     </footer>
     <!-- /Footer  -->
 
@@ -228,144 +170,6 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/vendor/parallax.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
-
-    <script>
-      function defaultHideCart() {
-        $('.shopping-cart').hide();
-      }
-
-      function showCartOnToggle() {
-        $('#cart').click(function (event) {
-          event.preventDefault();
-          $(".shopping-cart").fadeToggle("fast");
-        })
-      }
-
-      function filterCategories() {
-        $('.paging-link').click(function (event) {
-          event.preventDefault();
-
-          const page = $(this).text().toLowerCase();
-          // console.log(page);
-          $('.gallery-page').addClass('hidden');
-          $('.gallery-page-' + page).removeClass('hidden').fadeTo("slow");
-          // console.log('#gallery-page-' + page)
-          $('.paging-link').removeClass('active');
-          $(this).addClass("active");
-        });
-      }
-
-      function showAllMenu() {
-        $('.menu').click(function (e) {
-          e.preventDefault();
-          $('.gallery-page').removeClass('hidden').fadeTo("slow");
-
-          // const page = $(this).text().toLowerCase();
-          // // console.log(page);
-          // $('.paging-menu').removeClass('active');
-          $(this).addClass("active");
-        });
-      }
-
-      /* function showAddToOrderButtonOnHover() {
-        Handle add to order on hover
-        $('.add-to-order-container').addClass('hidden');
-        $('.gallery-item').hover(
-          function() {
-            $('.add-to-order-container').removeClass('hidden');
-          },
-          function() {
-            $('add-to-order-container').addClass('hidden');
-          }
-        );
-      } */
-
-      // function addToTotalOrders() {
-      //   $('.wrap').click(function () {
-      //     $(".shopping-cart").fadeIn("fast");
-      //     const fullList = $(".shopping-cart-items")
-      //     console.log(fullList)
-      //     let totalOrders = parseInt($('.badge-outer').val());
-      //     // console.log(totalOrders)
-      //     totalOrders += 1;
-      //     $('.badge-outer').html(totalOrders);
-      //     $('.badge-inner').html(totalOrders);
-      //   })
-      // }
-
-      // function addToOrderTotal() {
-      //   $('.wrap').click(function () {
-      //     let orderTotal = +$('.main-color.text').html();
-      //     let price = $(` .add-to-order-container > .wrap > .add-to-order-price`).html()
-      //     // price += price;
-      //     $('.main-color-text').html(price)
-      //   })
-      // }
-
-      function getMenu() {
-        $.ajax({
-          method: "GET",
-          url: "/api/menu"
-        }).done((res) => {
-          localStorage.setItem('food', JSON.stringify(res.menu));
-          for (food of res.menu) {
-            addEntree(food);
-          }
-          // addItemHandlers();
-          // removeItemFromCart();
-          // addCartHandlers();
-        });
-      }
-
-      function getDrinks() {
-        $.ajax({
-          method: "GET",
-          url: "/api/drinks"
-        }).done((res) => {
-          localStorage.setItem('drinks', JSON.stringify(res.drinks))
-          for (drink of res.drinks) {
-            addEntree(drink);
-          }
-          // addItemHandlers();
-          // removeItemFromCart();
-          // addCartHandlers();
-        });
-      }
-
-      $(function () {
-        getMenu();
-        getDrinks();
-        // addItemHandlers();
-        // defaultHideCart();
-        // showCartOnToggle();
-        // filterCategories();
-        // addToTotalOrders();
-        // addToOrderTotal();
-        // showAllMenu();
-      });
-
-      $(function () {
-        $.ajax({
-          method: "GET",
-          url: "/api/menu"
-        }).done((res) => {
-          // console.log(res)
-          for (food of res.menu) {
-            addEntree(food);
-          }
-          addItemHandlers();
-          addToTotalOrders();
-          addToOrderTotal();
-          // removeItemFromCart();
-          // addCartHandlers();
-        });
-        defaultHideCart();
-        showCartOnToggle();
-        filterCategories();
-        showAllMenu();
-      });
-
-    </script>
     <!-- /JavaScript -->
 </body>
 

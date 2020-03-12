@@ -1104,6 +1104,7 @@ address {
 #topBtn button {
   border: none;
   outline: none;
+  background: none;
 }
 #topBtn p {
   font-size: 12.5px;

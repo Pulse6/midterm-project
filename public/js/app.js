@@ -136,7 +136,7 @@ const removeCartItem = () => {
     let newtot = (currentTot - (amount * price)) / 100;
     if (newtot <= 0) {
       newtot = 0;
-      $('.shopping-cart').hide();
+      $('.shopping-cart').fadeOut("slow");
     }
     $(".main-color-text").text("$" + newtot);
     let totalOrders = parseInt($('.badge-outer').text());

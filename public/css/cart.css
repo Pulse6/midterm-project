@@ -173,6 +173,7 @@ width: 80%;
 
 #btnSubmit {
   font-family: "MedievalSharp", sans-serif;
+  outline: none;
 }
 
 #divMsg {

@@ -8,7 +8,7 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
   ),
   (
     'Beef Wellington',
-    'Beef fillet, surrounded in love and baked to perfection in Fatty Bolger approved puff pastry. This''ll be sure to put a smile on your Old Gaffers face.',
+    'Beef fillet, surrounded in love and baked to perfection in a Fatty Bolger approved puff pastry. This''ll be sure to put a smile on your Old Gaffers face.',
     'entrees',
     'assets/img/food/BeefWellington.jpg',
     2999
@@ -16,7 +16,7 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
   ),
   (
     'Shepherd Pie',
-    'From the bounty of the fields we''ve all ''borrowed'' from, but this time with his approval: Farmer Maggot Shepherd''s pie will not dissapoint.',
+    'From the bounty of the fields we''ve all ''borrowed'' from, but this time with his approval: Farmer Maggot''s Shepherd''s pie will not dissapoint.',
     'entrees',
     'assets/img/food/shepherds-pie.jpg',
     1499
@@ -30,14 +30,14 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
   ),
   (
     'The Prime Rib',
-    'From the pastures of Tookland comes a feast that is every Hobbit''s favourite meal. Prime rib served with creamy mashed potatoes, mixed vegetables, gravy and Shire puddings.',
+    'From the pastures of Tookland comes a feast that is among every Hobbit''s favourite meals. Prime rib served with creamy mashed potatoes, mixed vegetables, gravy and Shire puddings.',
     'entrees',
     'assets/img/food/prime-rib.jpeg',
     2499
   ),
   (
     'Sauteed Mushrooms',
-    'A far safer shortcut to mushrooms than you''re used to and our number #1 bestseller. A collection of wild mushrooms and mushrooms brough to us by Farmer Maggot this dish speaks for itself.',
+    'A far safer shortcut to mushrooms than you''re used to and our number #1 bestseller. A collection of wild and local mushrooms brough to us by Farmer Maggot, this dish speaks for itself.',
     'appetizers',
     'assets/img/food/mushrooms.jpg',
     999
@@ -65,14 +65,14 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
   ),
   (
     'Strawberries and Cream',
-    'From the orchards and dairies of the Cotton''s this dish is sweet, light and as lovely as Rossie Cotton herself',
+    'From the orchards and dairies of the Cotton Family this dish is sweet, light and as lovely as Rossie Cotton herself',
     'desserts',
     'assets/img/food/strawberries-cream.jpg',
     599
   ),
   (
     'Butter Tarts',
-    'These are the best tarts around. Enough said. just order it alright man',
+    'These are the best tarts around. Enough said. Well maybe one more thing, they''re better than Barliman''s',
     'desserts',
     'assets/img/food/butter-tarts.jpg',
     599

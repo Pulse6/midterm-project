@@ -22,7 +22,7 @@ INSERT INTO drinks (name, description, food_category, item_img, price) VALUES
   ),
   (
     'Juices',
-    'A variety of locally sourced beverages suitable for your younglings',
+    'A variety of locally sourced beverages suitable for your younglings or for a break from the Ale',
     'drinks',
     'assets/img/drinks/fruit-juice.jpeg',
     299

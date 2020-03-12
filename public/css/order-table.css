@@ -50,7 +50,7 @@ li {
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  border: solid;
+  border: 2px solid #4E9270;
 }
 .cart-list-item .cart-item-img {
   width: 100%;

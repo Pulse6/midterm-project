@@ -23,7 +23,7 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
   ),
   (
     'Chef Curry',
-    'While we Hobbits don''t normally hold well with foreign food this spicy curry from the East came to us back when Old Bilbo turned up not dead. Now we still don''t reckon much for travelling see, but this here is a mighty fine dish that many a Gaffer has taken too and you should too!',
+    'While we Hobbits don''t normally hold well with foreign food this spicy curry from the East came to us back when Old Bilbo turned up not dead. Now we still don''t reckon much for travelling see, but this here is a mighty fine dish that many a Gaffer has taken too',
     'entrees',
     'assets/img/food/rustic-curry.jpg',
     1499
@@ -37,14 +37,14 @@ INSERT INTO menu (name, description, food_category, item_img, price) VALUES
   ),
   (
     'Sauteed Mushrooms',
-    'A far safer shortcut to mushrooms than you''re used to and our number #1 bestseller. A collection of wild and local mushrooms brough to us by Farmer Maggot, this dish speaks for itself.',
+    'A far safer Shortcut to Mushrooms than you''re used to and our number #1 bestseller. A collection of wild and local mushrooms brough to us by Farmer Maggot, this dish speaks for itself.',
     'appetizers',
     'assets/img/food/mushrooms.jpg',
     999
   ),
   (
     'Fresh Chips',
-    'Brought to you by our guest chef S.Gamgee these are the best damned chips you''ll ever have.',
+    'Brought to you by our guest chef S.Gamgee, these are the best damned chips you''ll ever have.',
     'appetizers',
     'assets/img/food/french-fries.jpeg',
     499

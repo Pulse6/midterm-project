@@ -249,7 +249,7 @@ const postOrderAndRedirect = () => {
     }).done(() => {
       setTimeout(function(){
       window.location.replace('/order');
-      }, 2500);
+      }, 1000);
     })
   }
   });

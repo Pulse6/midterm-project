@@ -273,12 +273,11 @@ p, address {
   height: 30%;
   display: flex;
 }
-
 .site-logo {
   display: inline-block;
   margin-right: 5px;
   /* new */
-  max-width: 40%;
+  max-width: 250px;
   height: auto;
   /* new */
 }
@@ -946,3 +945,4 @@ address {
   width: 40%;
   margin: auto;
 }
+

@@ -40,7 +40,7 @@ const appendOrderSummaryItemTotal = orderSummaryItem => {
                 <span class="cart-item-price">$${(orderSummaryItem / 100)}<span>
               </p>
               <p class="cart-item-label">Total:
-                <span class="cart-item-price">$${Math.round(orderSummaryItem / 100) * 1.13}<span>
+                <span class="cart-item-price">$${Math.round(orderSummaryItem * 1.13) / 100}<span>
               </p>
             </span>
           </div>

@@ -8,6 +8,7 @@
   <title>The Second Breakfast Club</title>
   <link href="/css/style.css" rel="stylesheet" />
   <link href="/css/cart.css" rel="stylesheet" />
+  <link href="/css/chat.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/00423a3f1e.js" crossorigin="anonymous"></script>
   <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" >
@@ -30,6 +31,7 @@
   <img class="gifs-hobbits hide-clear" src="https://i.gifer.com/7CY6.gif" alt="">
   <img class="gifs-batman hide-clear" src="https://i.gifer.com/6DYm.gif" alt="">
   <div class="container">
+
     <!-- Top-Header Container -->
     <div class="placeholder">
       <!-- Parallax Video Container  -->
@@ -89,6 +91,62 @@
 
     <!-- Main Container  -->
     <main>
+
+      <div class="chat-content">
+        <!-- Chat Name Entry -->
+        <div id="user-form-area">
+          <form id="user-form">
+            <div class="login-area form-group" />
+            <input type="text" id="username" class="login-credential form-control" placeholder="What's your name?"></input>
+            <input type="submit" class="send" value="Enter" />
+        </div>
+        </form>
+      </div>
+      <!-- /Chat Name Entry -->
+
+      <!-- Chat Header -->
+      <div class="conversation-title">
+        <h1>&#x1F9D9;&zwj; &#x1F95E; The Second Breakfast Club &#x1F9C7; &#x1F9D9;&zwj;&female;&#xFE0F;</h1>
+      </div>
+      <!-- /Chat Header -->
+
+      <!-- Chat Body -->
+      <div id="chat" class="conversation-wrapper chat">
+
+
+        <div class="message-sent">
+              <div class="bubble">Hi Marco and Sebastian!</div>
+              <div class="namestamp">
+                <div class="name">Shaheer</div>
+              </div>
+            </div>
+
+            <div class="message-sent">
+              <div class="bubble">Open two tabs on localhost:8080, comment this out in the HTML, and start chatting away!</div>
+              <div class="namestamp">
+                <div class="name">Potin</div>
+              </div>
+            </div>
+
+            <div class="message-sent">
+              <div class="bubble">Also please get the chat window to hide somehow.</div>
+              <div class="namestamp">
+                <div class="name">Homer Simpson</div>
+              </div>
+            </div>
+
+      </div>
+      <!-- /Chat Body -->
+
+      <!-- Chat Text Input -->
+      <form id="message-form">
+        <div class="messaging-area form-group" />
+        <input type="text" id="message" class="form-control" placeholder="Ask us for order suggestions..."></input>
+        <input type="submit" class="send" value="" />
+        </div>
+      </form>
+      <!-- /Chat Text Input -->
+      </div>
 
       <!-- Welcome Header  -->
       <header class="row welcome-section">
@@ -162,6 +220,54 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/vendor/parallax.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script type="text/javascript" src="/js/chat.js"></script>
+    <!-- <script src="/node_modules/socket.io/socket.io.js"></script> -->
+
+
+    <!-- <script>
+      console.log('hi');
+      $(function() {
+          const socket = io('127.0.0.1:8080/?access_token=1d845e53c4b4bd2e235a66fe9c042d75ae8e3c6ae', { path: '/socket.io' });
+          // const socket = io.connect();
+          const $messageForm = $('#message-form');
+          const $message = $('#message');
+          const $chat = $('#chat');
+          const $userFormArea = $('#user-form-area');
+          const $userForm = $('#user-form')
+          const $username = $('#username');
+          console.log('hi');
+
+          $messageForm.submit(e => {
+            e.preventDefault();
+            socket.emit('send message', $message.val());
+            $message.val('');
+          });
+
+          $userForm.submit(e => {
+            e.preventDefault();
+            socket.emit('new user', $username.val(), data => {
+              if (data) {
+                $userFormArea.hide();
+              }
+            });
+            $username.val('');
+          });
+
+          socket.on('new message', data => {
+            $chat.append(
+            `
+            <div class="message-sent">
+              <div class="bubble">${data.msg}</div>
+              <div class="namestamp">
+                <div class="name">${data.user}</div>
+              </div>
+            </div>
+            `
+            )
+          });
+        })
+    </script> -->
     <!-- /JavaScript -->
 </body>
 

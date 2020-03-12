@@ -1,0 +1,116 @@
+body {
+  line-height: 1.5;
+}
+
+.chat-content {
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  max-width: 35%;
+  margin: 4em auto;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.conversation-title {
+  text-align: center;
+  padding: 15px;
+  background: linear-gradient(to bottom right, #05c81a, #0fb746);
+  color: #fff;
+}
+.conversation-title h1 {
+  font: 700 18px "MedievalSharp", sans-serif;
+  margin: 0;
+}
+.conversation-title .status {
+  font-size: 12px;
+}
+
+.conversation-wrapper {
+  background: #f9f9f9;
+  padding: 25px;
+  min-height: 500px;
+}
+
+.message-sent /* .message-received */ {
+  padding: 0;
+}
+
+/* .message-received {
+  text-align: right;
+} */
+
+.message-sent {
+  text-align: right;
+}
+
+.bubble {
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px 18px;
+  border: 0.5px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+  max-width: 95%;
+  display: block;
+  text-align: left;
+}
+
+.namestamp {
+  margin: 8px 0;
+}
+.namestamp .name {
+  display: inline-block;
+  font-size: 12px;
+  color: #999;
+  margin: 0 5px;
+}
+
+.messaging-area {
+  position: relative;
+  box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.03);
+}
+.messaging-area input.form-control {
+  font: 16px "MedievalSharp", sans-serif;
+  border: none;
+  overflow: none;
+  box-shadow: none;
+  padding: 20px 30px;
+  width: 100%;
+  resize: none;
+}
+.messaging-area input.send {
+  background: #56B94E url('https://image.flaticon.com/icons/svg/941/941565.svg');
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 8px 10px 12px;
+  position: absolute;
+  font-size: 1.4em;
+  text-align: center;
+  right: 8px;
+  bottom: 0px;
+
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+
+#user-form-area {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background: #56B94E;
+  position: absolute;
+  border-radius: 8px;
+  width: 21%;
+  height: 52%;
+  z-index: 1;
+  top: 53%;
+  left: 760px;
+  opacity: 0.75;
+}

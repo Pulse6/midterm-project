@@ -12,11 +12,20 @@ const ENV = process.env.ENV || "development";
 // NODE MODULE DEPENDENCIES \\
 const express       = require('express');
 const app           = express();
+const server        = require('http').Server(app);
 const sass          = require('node-sass-middleware');
 const morgan        = require('morgan');
 const uuidv5        = require('uuid/v5');
 const bodyParser    = require('body-parser');
 const cookieSession = require('cookie-session');
+const io = require('socket.io')(server);
+const cors = require('cors');
+const allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', "http://localhost:8080");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+};
 
 // POSTGRES-SQL DATABASE CLIENT/CONNECTION SETUP \\
 const { Pool } = require('pg');
@@ -46,6 +55,10 @@ app.use(cookieSession({
   keys: ['123']
 }));
 
+// CORS MIDDLEWARE FOR WEBSOCKET CONNECTIONS \\
+app.use(allowCrossDomain);
+app.use(cors({ credentials: true, origin: 'http://localhost:8080' }));
+
 // NODE-SASS (.scss COMPILER) \\
 app.use("/styles", sass({
   src: __dirname + "/scss",
@@ -56,6 +69,36 @@ app.use("/styles", sass({
 
 // SERVE ALL ASSETS OUT OF THE PUBLIC FOLDER \\
 app.use(express.static("public"));
+
+/* - - - - - - - - - - - - - - SOCKET.IO DATA HANDLING - - - - - - - - - - - - - - */
+
+let users = [];
+let connections = [];
+
+// Upon Connection
+io.sockets.on('connection', socket => {
+  connections.push(socket);
+  console.log('Connected: %s sockets connected!', connections.length);
+
+  // Disconnect
+  socket.on('disconnect', data => {
+    connections.splice(connections.indexOf(socket), 1);
+    console.log('Disconnected: %s sockets connected!', connections.length);
+  });
+
+  // Send Message
+  socket.on('send message', data => {
+    console.log(data);
+    io.sockets.emit('new message', { msg: data, user: socket.username });
+  });
+
+  // New User
+  socket.on('new user', (data, callback) => {
+    callback(true);
+    socket.username = data;
+    users.push(socket.username);
+  });
+})
 
 /* ————————————————————————— ROUTES / MOUNTING ————————————————————————— */
 

@@ -66,7 +66,23 @@ const scrollToTop = () => {
   });
 
   $("#topBtn").click(function() {
-    $("html").animate({ scrollTop: 0 }, 0);
+    $("html").animate({ scrollTop: 0 }, 400);
+  });
+};
+
+// OPEN CHAT ON ELF CLICK \\
+const openChat = () => {
+  $('.chat-content').hide();
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $("#chatBtn").fadeIn();
+    } else {
+      $("#chatBtn").fadeOut();
+    }
+  });
+
+  $('#chatBtn').click(function() {
+    $('.chat-content').fadeToggle('fast');
   });
 };
 
@@ -272,9 +288,9 @@ const filterMenuItems = () => {
     const page = $(this).text().toLowerCase();
 
     $('.gallery-page').addClass('hidden');
-    $('.gallery-page-' + page).removeClass('hidden');
+    $('.gallery-page-' + page).removeClass('hidden').fadeOut('fast');
     $('.paging-link').removeClass('active');
-    $(this).addClass("active");
+    $(this).addClass("active").fadeIn();
   });
 };
 
@@ -356,8 +372,9 @@ $(function() {
   updateCartBadgeValues();
   updateCartTotalPrice();
   removeCartItem();
-  scrollToTop();
   hobbitonAudio();
+  scrollToTop();
+  openChat();
 
   wtf()
   nowtf()

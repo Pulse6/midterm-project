@@ -3,13 +3,16 @@ body {
 }
 
 .chat-content {
+  position: fixed;
+  left: 170px;
+  bottom: 80px;
+  margin: 4em auto;
   background: #fff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   max-width: 35%;
-  margin: 4em auto;
   border-radius: 8px;
   overflow: hidden;
-  z-index: 1;
+  z-index: 999;
 }
 
 .conversation-title {
@@ -101,16 +104,16 @@ body {
 }
 
 #user-form-area {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   background: #56B94E;
-  position: absolute;
+  position: fixed;
   border-radius: 8px;
-  width: 21%;
-  height: 52%;
-  z-index: 1;
-  top: 53%;
-  left: 760px;
-  opacity: 0.75;
+  width: 31%;
+  height: 54%;
+  z-index: 999;
+  top: 33%;
+  left: 80px;
+  opacity: 1;
 }

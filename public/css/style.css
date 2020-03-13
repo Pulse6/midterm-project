@@ -545,7 +545,8 @@ p, address {
 
 .description-figure img {
   max-width: 100%;
-  height: auto;
+  height: 320px;
+  border-radius: 5px;
 }
 
 .description-box {

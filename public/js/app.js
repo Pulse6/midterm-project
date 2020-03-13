@@ -288,7 +288,7 @@ const filterMenuItems = () => {
     const page = $(this).text().toLowerCase();
 
     $('.gallery-page').addClass('hidden');
-    $('.gallery-page-' + page).removeClass('hidden').fadeOut('fast');
+    $('.gallery-page-' + page).removeClass('hidden');
     $('.paging-link').removeClass('active');
     $(this).addClass("active").fadeIn();
   });

@@ -12,7 +12,7 @@ $(function() {
     e.preventDefault();
     socket.emit('new user', $username.val(), data => {
       if (data) {
-        $userFormArea.hide();
+        $userFormArea.fadeOut(400);
       }
     });
     $username.val('');

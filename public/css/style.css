@@ -1117,6 +1117,41 @@ address {
   align-items: center;
 }
 
+/*****/
+
+#chatBtn  {
+  position: fixed;
+  bottom: 62px;
+  left: 60px;
+  /* display: none; */
+  z-index: 1000;
+  border: none;
+  outline: none;
+}
+#chatBtn img {
+  font-size: 50px;
+  width: auto;
+  height: 75px;
+  outline: none;
+  cursor: pointer;
+}
+#chatBtn button {
+  border: none;
+  outline: none;
+  background: none;
+}
+#chatBtn p {
+  font-size: 16px;
+}
+
+#chatBtn .buttonFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*****/
+
 /* .hobbitonAudio {
   cursor: pointer;
 } */

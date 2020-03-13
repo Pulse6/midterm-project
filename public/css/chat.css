@@ -4,8 +4,8 @@ body {
 
 .chat-content {
   position: fixed;
-  left: 170px;
-  bottom: 80px;
+  left: 140px;
+  bottom: 40px;
   margin: 4em auto;
   background: #fff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -111,9 +111,9 @@ body {
   position: fixed;
   border-radius: 8px;
   width: 31%;
-  height: 54%;
+  height: 60%;
   z-index: 999;
-  top: 33%;
-  left: 80px;
+  top: 35%;
+  left: 45px;
   opacity: 1;
 }

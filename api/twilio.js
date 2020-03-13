@@ -29,7 +29,7 @@ function runTwilio(orderBody) {
   /* Text to Client */
   client.messages
     .create({
-      body: "Your order is being prepared!.",
+      body: "Your order is being prepared!",
       from: process.env.TWILIO_NUMBER,
       to: process.env.CLIENT_NUMBER
     })

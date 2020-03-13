@@ -200,7 +200,7 @@ app.post("/api/order", (req, res) => {
 
   updateOrderTable({owner_id: req.session.userID, itemsInTheOrder: currentOrder})
     .then(cartOrder => {
-      // runTwilio(cartOrder);
+      runTwilio(cartOrder);
       res.send(cartOrder);
     })
     .catch(e => {

@@ -46,6 +46,105 @@ const removeLocalStorage = name => {
   localStorage.setItem('order', JSON.stringify(newOrder));
 };
 
+// REMOVE ORDER FROM LOCAL STORAGE ON WINDOW UNLOAD \\
+const removeLocalStorageOnUnload = () => {
+  window.onunload = () => {
+    localStorage.removeItem('order');
+  }
+};
+
+/* ————————————————————————— PAGE INTERACTIONS ————————————————————————— */
+
+// SCROLL TO TOP ON RUNE CLICK \\
+const scrollToTop = () => {
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 700) {
+      $("#topBtn").fadeIn();
+    } else {
+      $("#topBtn").fadeOut();
+    }
+  });
+
+  $("#topBtn").click(function() {
+    $("html").animate({ scrollTop: 0 }, 400);
+  });
+};
+
+// OPEN CHAT ON ELF CLICK \\
+const openChat = () => {
+  $('.chat-content').hide();
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 2200) {
+      $("#chatBtn").fadeIn();
+    } else {
+      $("#chatBtn").fadeOut();
+    }
+  });
+
+  $('#chatBtn').click(function() {
+    $('.chat-content').fadeToggle('fast');
+  });
+};
+
+// PLAY HOBBITON AUDIO ON "HOBBITON" CLICK \\
+const myAudio = document.getElementById("myAudio");
+let isPlaying = false;
+
+function togglePlay() {
+  if (!isPlaying) {
+    myAudio.play()
+  } else {
+    myAudio.pause();
+  }
+};
+
+myAudio.onplay = function() {
+  isPlaying = true;
+};
+
+myAudio.onpause = function() {
+  isPlaying = false;
+};
+
+// PARTY TIME \\
+const wtf = () => {
+  $("body").on("click", ".this-shit", function(event) {
+    $("#clear").removeClass('hide-clear');
+    $(".img-fluid").addClass('spin');
+    $(".gifs-dog").removeClass('hide-clear');
+    $(".gifs-sim").removeClass('hide-clear');
+    $(".gifs-dance").removeClass('hide-clear');
+    $(".gifs-girl").removeClass('hide-clear');
+    $(".gifs-thatguy").removeClass('hide-clear');
+    $(".gifs-banana").removeClass('hide-clear');
+    $(".gifs-eye").removeClass('hide-clear');
+    $(".gifs-potin").removeClass('hide-clear');
+    $(".gifs-realdog").removeClass('hide-clear');
+    $(".gifs-hobbits").removeClass('hide-clear');
+    $(".gifs-batman").removeClass('hide-clear');
+  });
+};
+
+// NO PARTY TIME \\
+const nowtf = () => {
+  $("body").on("click", "#clear", function(event) {
+    $("#clear").addClass('hide-clear');
+    $(".img-fluid").removeClass('spin');
+    $(".gifs-dog").addClass('hide-clear');
+    $(".gifs-sim").addClass('hide-clear');
+    $(".gifs-dance").addClass('hide-clear');
+    $(".gifs-girl").addClass('hide-clear');
+    $(".gifs-thatguy").addClass('hide-clear');
+    $(".gifs-banana").addClass('hide-clear');
+    $(".gifs-eye").addClass('hide-clear');
+    $(".gifs-potin").addClass('hide-clear');
+    $(".gifs-realdog").addClass('hide-clear');
+    $(".gifs-hobbits").addClass('hide-clear');
+    $(".gifs-batman").addClass('hide-clear');
+  });
+};
+
+
 /* ————————————————————————— CART INTERACTIONS ————————————————————————— */
 
 // HIDE CART ON LOAD \\
@@ -188,9 +287,9 @@ const filterMenuItems = () => {
     const page = $(this).text().toLowerCase();
 
     $('.gallery-page').addClass('hidden');
-    $('.gallery-page-' + page).removeClass('hidden').fadeTo("slow");
+    $('.gallery-page-' + page).removeClass('hidden');
     $('.paging-link').removeClass('active');
-    $(this).addClass("active");
+    $(this).addClass("active").fadeIn();
   });
 };
 
@@ -255,42 +354,6 @@ const postOrderAndRedirect = () => {
   });
 };
 
-const wtf = () => {
-  $("body").on("click", ".this-shit", function(event) {
-    $("#clear").removeClass('hide-clear');
-    $(".img-fluid").addClass('spin');
-    $(".gifs-dog").removeClass('hide-clear');
-    $(".gifs-sim").removeClass('hide-clear');
-    $(".gifs-dance").removeClass('hide-clear');
-    $(".gifs-girl").removeClass('hide-clear');
-    $(".gifs-thatguy").removeClass('hide-clear');
-    $(".gifs-banana").removeClass('hide-clear');
-    $(".gifs-eye").removeClass('hide-clear');
-    $(".gifs-potin").removeClass('hide-clear');
-    $(".gifs-realdog").removeClass('hide-clear');
-    $(".gifs-hobbits").removeClass('hide-clear');
-    $(".gifs-batman").removeClass('hide-clear');
-  });
-};
-
-const nowtf = () => {
-  $("body").on("click", "#clear", function(event) {
-    $("#clear").addClass('hide-clear');
-    $(".img-fluid").removeClass('spin');
-    $(".gifs-dog").addClass('hide-clear');
-    $(".gifs-sim").addClass('hide-clear');
-    $(".gifs-dance").addClass('hide-clear');
-    $(".gifs-girl").addClass('hide-clear');
-    $(".gifs-thatguy").addClass('hide-clear');
-    $(".gifs-banana").addClass('hide-clear');
-    $(".gifs-eye").addClass('hide-clear');
-    $(".gifs-potin").addClass('hide-clear');
-    $(".gifs-realdog").addClass('hide-clear');
-    $(".gifs-hobbits").addClass('hide-clear');
-    $(".gifs-batman").addClass('hide-clear');
-  });
-};
-
 /* ————————————————————————— DOCUMENT.READY ————————————————————————— */
 
 // NOTE: Order of the functions below matters! AJAX requests first, then the rest.
@@ -299,6 +362,7 @@ $(function() {
   getAndRenderMenu();
   getAndRenderDrinks();
   postOrderAndRedirect();
+  removeLocalStorageOnUnload();
   filterMenuItems();
   showAllMenuItems();
   hideCartOnLoad();
@@ -307,51 +371,9 @@ $(function() {
   updateCartBadgeValues();
   updateCartTotalPrice();
   removeCartItem();
+  scrollToTop();
+  openChat();
 
   wtf()
   nowtf()
 });
-
-// Scroll Top Button
-
-$(window).scroll(function() {
-  if ($(this).scrollTop() > 700) {
-    $("#topBtn").fadeIn();
-
-  } else {
-    $("#topBtn").fadeOut();
-
-  }
-});
-
-$("#topBtn").click(function() {
-  $('html').animate({scrollTop : 0}, 0);
-
-});
-
-// Clear local storage on refresh or browser quit
-
-window.onunload = () => {
-  localStorage.removeItem('order');
-}
-
-// Embedded audio for Hobbiton Easter Egg
-
-const myAudio = document.getElementById("myAudio");
-let isPlaying = false;
-
-function togglePlay() {
-  if (!isPlaying) {
-    myAudio.play()
-  } else {
-    myAudio.pause();
-  }
-};
-myAudio.onplay = function() {
-  isPlaying = true;
-};
-myAudio.onpause = function() {
-  isPlaying = false;
-};
-
-

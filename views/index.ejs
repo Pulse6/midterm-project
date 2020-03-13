@@ -8,12 +8,12 @@
   <title>The Second Breakfast Club</title>
   <link href="/css/style.css" rel="stylesheet" />
   <link href="/css/cart.css" rel="stylesheet" />
+  <link href="/css/chat.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/00423a3f1e.js" crossorigin="anonymous"></script>
   <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" >
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
-
 </head>
 
 <body>
@@ -30,6 +30,7 @@
   <img class="gifs-hobbits hide-clear" src="https://i.gifer.com/7CY6.gif" alt="">
   <img class="gifs-batman hide-clear" src="https://i.gifer.com/6DYm.gif" alt="">
   <div class="container">
+
     <!-- Top-Header Container -->
     <div class="placeholder">
       <!-- Parallax Video Container  -->
@@ -37,7 +38,6 @@
 
         <div class="picture">
           <img src="/assets/img/the-second-breakfast-club-the-boys.png" alt="Logo" class="site-picture" />
-
         </div>
 
         <!-- Main Header Container  -->
@@ -50,10 +50,12 @@
             <!-- Navbar Container  -->
             <nav class="col-md-6 col-12 nav">
               <ul class="nav-ul">
-                <li class="nav-li"><a href="#mainMenu" class="nav-link active">Menu</a></li>
-                <!-- <li class="nav-li"><a href="order" class="nav-link">Order</a></li> -->
-                <li class="nav-li"><a href="#" id="cart" class="nav-link"><i class="fa fa-shopping-cart"></i> Cart <span
-                      class="badge-outer">0</span></a></li>
+                <li class="nav-li"><a href="#mainMenu" class="nav-link active">Home</a></li>
+                <li class="nav-li">
+                  <a href="#" id="cart" class="nav-link">
+                    <i class="fas fa-utensils"></i> Your Order <span class="badge-outer">0</span>
+                  </a>
+                </li>
               </ul>
             </nav>
             <!-- /Navbar Container  -->
@@ -62,7 +64,7 @@
             <div class="shopping-cart">
               <!-- Order Cart: Header-->
               <div class="shopping-cart-header">
-                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge-inner">0</span>
+                <i class="fas fa-utensils cart-icon"></i><span class="badge-inner">0</span>
                 <div class="shopping-cart-total">
                   <span class="lighter-text">Total:</span>
                   <span class="main-color-text">$0.00</span>
@@ -71,16 +73,17 @@
               <!-- /Order Cart: Header-->
 
               <!-- Order Cart: Items-->
-              <ul class="shopping-cart-items">
-                <!-- cart item adds in here -->
-              </ul>
+              <ul class="shopping-cart-items"></ul>
               <!-- /Order Cart: Items-->
+
+              <!-- Checkout Button -->
               <form action="/order" method="POST">
-                        <button id="btnSubmit" class="button" runat="server" Text="Order">Order</button>
-                        <button id="divMsg" class="button" style="display:none; padding: 2px;">
-                          <img class="loadImg" src="/assets/img/loadCircle.png" alt="Please wait.."/>
-                        </button>
+                <button id="btnSubmit" class="button" runat="server" Text="Order">Order</button>
+                <button id="divMsg" class="button" style="display:none; padding: 2px;">
+                  <img class="loadImg" src="/assets/img/loadCircle.png" alt="Please wait.."/>
+                </button>
               </form>
+              <!-- /Checkout Button -->
             </div>
             <!-- /Order Cart Container -->
           </div>
@@ -94,15 +97,60 @@
     <!-- Main Container  -->
     <main>
 
+      <div class="chat-content">
+        <!-- Chat Name Entry -->
+        <div id="user-form-area">
+          <form id="user-form">
+            <div class="login-area form-group" />
+            <input type="text" id="username" class="login-credential form-control" placeholder="What's your name?" required></input>
+            <input type="submit" class="send learn-more" value="Enter" />
+          </form>
+        </div>
+        <!-- /Chat Name Entry -->
+        </div>
+
+        <!-- Chat Header -->
+        <div class="conversation-title">
+          <h1>&#x1F9D9;&zwj; &#x1F95E; The Second Breakfast Club &#x1F9C7; &#x1F9D9;&zwj;&female;&#xFE0F;</h1>
+        </div>
+        <!-- /Chat Header -->
+
+
+        <!-- Chat Body -->
+        <div id="chat" class="conversation-wrapper chat"></div>
+        <!-- /Chat Body -->
+
+        <!-- Chat Text Input -->
+        <form id="message-form">
+          <div class="messaging-area form-group">
+            <input type="text" id="message" class="form-control" placeholder="Ask us for order suggestions..." />
+            <input type="submit" class="send" value="" />
+          </div>
+        </form>
+        <!-- /Chat Text Input -->
+      </div>
+
+      <!-- </div>
+    </div> -->
+
       <!-- Welcome Header  -->
       <header id="mainMenu" class="row welcome-section">
         <h2 class="col-12 text-center section-title">Welcome to the Second Breakfast Club</h2>
-        <p class="col-12 text-center">A place to rest in between your journeys. We made our website as simple possible, so you can focus less on moving around and more on getting the food you want</p>
-          <p class="col-12 text-center">Now sit back and enjoy the sights and sounds of <span class="hobbitonAudio"><a onClick="togglePlay()">Hobbiton</a></span></p>
+        <p class="col-12 text-center">
+          A place to rest in between your journeys. We made our website as simple possible, so you can focus less on navigating and more on dining!
+        </p>
+        <p class="col-12 text-center">
+          Now sit back and enjoy the sights and sounds of
+          <span class="hobbitonAudio">
+            <a onClick="togglePlay()">
+              Hobbiton.
+            </a>
+          </span>
+        </p>
       </header>
       <!-- /Welcome Header  -->
 
-      <!-- Paging Filters  -->
+      <!-- Menu Item Filters  -->
       <div class="paging-links">
         <nav>
           <ul>
@@ -114,39 +162,56 @@
           </ul>
         </nav>
       </div>
-      <!-- Paging Filters  -->
+      <!-- Menu Item Filters  -->
 
-      <!-- Gallery Container  -->
-      <div class="row gallery">
-        <!-- menu item adds in here -->
-      </div>
-      <!-- /Gallery Container  -->
+      <!-- Menu Item Container  -->
+      <div class="row gallery"></div>
+      <!-- /Menu Item Container  -->
 
-      <!-- Food of the Day -->
+      <!-- Bottom Container -->
       <div class="section container-inner">
         <div class="row">
+
           <div class="col-md-6">
             <figure class="description-figure">
               <img class="this-shit" src="/assets/img/hobbiton.jpeg" alt="Image" class="img-fluid" />
             </figure>
           </div>
+
           <div class="col-md-6">
             <div class="description-box">
-              <h4 class="gallery-title">The Second Breakfast Club -Hobbiton, The Shire</h4>
-              <p class="mb-45"> Welcome to the Second Breakfast Club - Brought to you by Masters Peregrin Took and Meriadoc Brandybuck</p>
+              <h4 class="gallery-title">The Second Breakfast Club - Hobbiton, The Shire</h4>
+              <p class="mb-45">
+                Welcome to the Second Breakfast Club. Brought to you by Masters Peregrin Took and Meriadoc Brandybuck.
+              </p>
               <p>
-                Whether you come from near or far all who travel the King's road to our humble abode will find rest, warmth, good-food and old fashioned Hobbit cheer</p>
+                Whether you come from near or far, all who travel the King's road to our humble abode will find rest, warmth, good-food, and old fashioned Hobbit cheer.
+              </p>
             </div>
           </div>
+
         </div>
       </div>
+      <!-- /Bottom Container -->
+
+      <!-- Chat Button -->
+      <div id="chatBtn">
+        <div class="buttonFlex">
+          <button><img src="/assets/img/chat-elf.png" /></button>
+          <!-- <p><strong>Chat</strong></p> -->
+        </div>
+      </div>
+      <!-- /Chat Button -->
+
+      <!-- Back to Top Button -->
       <div id="topBtn">
         <div class="buttonFlex">
-          <button><img src="/assets/img/topButtonImg.png"></i></button>
+          <button><img src="/assets/img/topButtonImg.png" /></button>
           <p>Top</p>
         </div>
-          </div>
-      <!-- /Food of the Day -->
+      </div>
+      <!-- /Back to Top Button -->
+
     </main>
     <!-- /Main Container  -->
 
@@ -158,11 +223,7 @@
         <a style="text-decoration: underline;" href="https://github.com/lynchseb">Sebastian</a>
       </p>
 
-
-          <audio id="myAudio" src="/assets/audio/hobbit-audio-trim.mp3" preload="auto">
-          </audio>
-
-
+      <audio id="myAudio" src="/assets/audio/hobbit-audio-trim.mp3" preload="auto"></audio>
     </footer>
     <!-- /Footer  -->
 
@@ -170,6 +231,9 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/vendor/parallax.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script type="text/javascript" src="/js/chat.js"></script>
+    <!-- <script src="/node_modules/socket.io/socket.io.js"></script> -->
     <!-- /JavaScript -->
 </body>
 

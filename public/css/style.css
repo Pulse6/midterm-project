@@ -193,7 +193,7 @@ html {
 body {
   font-family: 'MedievalSharp', Arial, sans-serif;
   font-size: 17px;
-  background-color: white;
+  background-color: whitesmoke;
   /* was #ccc */
   /* overflow-x: hidden;
   overflow-y: hidden;
@@ -214,6 +214,7 @@ p, address {
   width: 100%;
   min-height: 460px;
   background-color: #556E5B;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .placeholder-2 {
@@ -545,7 +546,8 @@ p, address {
 
 .description-figure img {
   max-width: 100%;
-  height: auto;
+  height: 320px;
+  border-radius: 5px;
 }
 
 .description-box {

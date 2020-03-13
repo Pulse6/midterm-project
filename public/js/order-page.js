@@ -37,10 +37,10 @@ const appendOrderSummaryItemTotal = orderSummaryItem => {
           <div class="cart-item-description">
             <span>
               <p class="cart-item-label">Sub-Total:
-                <span class="cart-item-price">$${(orderSummaryItem / 100)}<span>
+                <span class="cart-item-price"><strong>$${(orderSummaryItem / 100)}</strong><span>
               </p>
-              <p class="cart-item-label">Total:
-                <span class="cart-item-price">$${Math.round(orderSummaryItem * 1.13) / 100}<span>
+              <p class="cart-item-label">Total (13% Tax):
+                <span class="cart-item-price"><strong>$${Math.round(orderSummaryItem * 1.13) / 100}</strong><span>
               </p>
             </span>
           </div>

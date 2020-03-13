@@ -1,0 +1,39 @@
+.parallax-window {
+	 height: 100%;
+	 width: 100%;
+	 background: transparent;
+	 position: relative;
+}
+ .parallax-window-2 {
+	 min-height: 220px;
+	 width: 100%;
+	 margin-left: auto;
+	 margin-right: auto;
+	 background: transparent;
+	 position: relative;
+}
+ .parallax-mirror {
+	/* z-index: 999 !important;
+	 */
+	 filter: blur(8px);
+}
+ .movie {
+	 height: 100vh;
+	 width: 100vw;
+}
+ .loginInner {
+	 font-family: "MedievalSharp", sans-serif;
+	 font-size: 50px;
+	 color: rgba(223, 195, 37, 0.815);
+	 text-shadow: 2px 2px 4px whitesmoke;
+	 background: transparent;
+	 border: none;
+	 outline: none;
+	 cursor: pointer;
+	 z-index: 1000;
+}
+ .loginOutter {
+	 position: absolute;
+	 top: 50%;
+	 left: 30%;
+}

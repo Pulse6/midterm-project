@@ -87,29 +87,7 @@ const openChat = () => {
 };
 
 // PLAY HOBBITON AUDIO ON "HOBBITON" CLICK \\
-const hobbitonAudio = () => {
-  const myAudio = document.getElementById("myAudio");
-  let isPlaying = false;
-
-  function togglePlay() {
-    if (!isPlaying) {
-      myAudio.play()
-    } else {
-      myAudio.pause();
-    }
-  };
-
-  myAudio.onplay = function() {
-    isPlaying = true;
-  };
-
-  myAudio.onpause = function() {
-    isPlaying = false;
-  };
-};
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-const myAudio = $("#myAudio");
+const myAudio = document.getElementById("myAudio");
 let isPlaying = false;
 
 function togglePlay() {
@@ -127,7 +105,6 @@ myAudio.onplay = function() {
 myAudio.onpause = function() {
   isPlaying = false;
 };
-//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // PARTY TIME \\
 const wtf = () => {
@@ -394,7 +371,6 @@ $(function() {
   updateCartBadgeValues();
   updateCartTotalPrice();
   removeCartItem();
-  hobbitonAudio();
   scrollToTop();
   openChat();
 

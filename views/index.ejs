@@ -15,6 +15,59 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
 
+  <style>
+  #username {
+    border-radius: 8px;
+    font-family: 'MedievalSharp';
+  }
+ input.learn-more {
+   font-family: 'MedievalSharp';
+   font-weight: 600;
+   font-size: 16px;
+	 color: white;
+	 text-transform: uppercase;
+	 padding: 8px;
+	 background: #348F50;
+	 border: 1px solid #56B4D3;
+	 border-radius: 0.75em;
+	 transform-style: preserve-3d;
+   transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+   width: 100%;
+}
+ input.learn-more::before {
+	 position: absolute;
+	 content: '';
+	 width: 100%;
+	 height: 100%;
+	 top: 0;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 background: linear-gradient(to bottom right, #348F50, #56B4D3);
+	 border-radius: inherit;
+	 box-shadow: 0 0 0 2px #2f6627, 0 0.625em 0 0 #348F50;
+	 transform: translate3d(0, 0.75em, -1em);
+	 transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+ input.learn-more:hover {
+	 background: #56B4D3;
+	 transform: translate(0, 0.25em);
+}
+ input.learn-more:hover::before {
+	 box-shadow: 0 0 0 2px rgb(108, 186, 212), 0 0.5em 0 0 #348F50;
+	 transform: translate3d(0, 0.5em, -1em);
+}
+ input.learn-more:active {
+	 background: #56B4D3;
+	 transform: translate(0em, 0.75em);
+}
+ input.learn-more:active::before {
+	 box-shadow: 0 0 0 2px #2f6627, 0 0 #348F50;
+	 transform: translate3d(0, 0, -1em);
+}
+
+  </style>
+
 </head>
 
 <body>
@@ -51,11 +104,10 @@
             <!-- Navbar Container  -->
             <nav class="col-md-6 col-12 nav">
               <ul class="nav-ul">
-                <li class="nav-li"><a href="#mainMenu" class="nav-link active">Menu</a></li>
-                <!-- <li class="nav-li"><a href="order" class="nav-link">Order</a></li> -->
+                <li class="nav-li"><a href="#mainMenu" class="nav-link active">Home</a></li>
                 <li class="nav-li">
                   <a href="#" id="cart" class="nav-link">
-                    <i class="fa fa-shopping-cart"></i>Cart <span class="badge-outer">0</span>
+                    <i class="fas fa-utensils"></i> Your Order <span class="badge-outer">0</span>
                   </a>
                 </li>
               </ul>
@@ -66,7 +118,7 @@
             <div class="shopping-cart">
               <!-- Order Cart: Header-->
               <div class="shopping-cart-header">
-                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge-inner">0</span>
+                <i class="fas fa-utensils cart-icon"></i><span class="badge-inner">0</span>
                 <div class="shopping-cart-total">
                   <span class="lighter-text">Total:</span>
                   <span class="main-color-text">$0.00</span>
@@ -104,8 +156,8 @@
         <div id="user-form-area">
           <form id="user-form">
             <div class="login-area form-group" />
-            <input type="text" id="username" class="login-credential form-control" placeholder="What's your name?"></input>
-            <input type="submit" class="send" value="Enter" />
+            <input type="text" id="username" class="login-credential form-control" placeholder="What's your name?" required></input>
+            <input type="submit" class="send learn-more" value="Enter" />
           </form>
         </div>
         <!-- /Chat Name Entry -->

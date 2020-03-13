@@ -74,7 +74,7 @@ const scrollToTop = () => {
 const openChat = () => {
   $('.chat-content').hide();
   $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
+    if ($(this).scrollTop() > 2200) {
       $("#chatBtn").fadeIn();
     } else {
       $("#chatBtn").fadeOut();
@@ -102,10 +102,32 @@ const hobbitonAudio = () => {
   myAudio.onplay = function() {
     isPlaying = true;
   };
+
   myAudio.onpause = function() {
     isPlaying = false;
   };
 };
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+const myAudio = $("#myAudio");
+let isPlaying = false;
+
+function togglePlay() {
+  if (!isPlaying) {
+    myAudio.play()
+  } else {
+    myAudio.pause();
+  }
+};
+
+myAudio.onplay = function() {
+  isPlaying = true;
+};
+
+myAudio.onpause = function() {
+  isPlaying = false;
+};
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // PARTY TIME \\
 const wtf = () => {

@@ -20,6 +20,7 @@ body {
   padding: 15px;
   background: linear-gradient(to bottom right, #05c81a, #0fb746);
   color: #fff;
+  /* filter: blur(2px); */
 }
 .conversation-title h1 {
   font: 700 18px "MedievalSharp", sans-serif;
@@ -33,6 +34,7 @@ body {
   background: #f9f9f9;
   padding: 25px;
   min-height: 500px;
+  /* filter: blur(2px); */
 }
 
 .message-sent /* .message-received */ {
@@ -71,6 +73,7 @@ body {
 .messaging-area {
   position: relative;
   box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.03);
+  /* filter: blur(2px); */
 }
 .messaging-area input.form-control {
   font: 16px "MedievalSharp", sans-serif;
@@ -107,7 +110,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #56B94E;
+  background: linear-gradient(to bottom right, #56B4D3, #348F50);
   position: fixed;
   border-radius: 8px;
   width: 31%;

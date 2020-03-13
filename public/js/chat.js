@@ -12,7 +12,11 @@ $(function() {
     e.preventDefault();
     socket.emit('new user', $username.val(), data => {
       if (data) {
+        // const filterVal = 'blur(0px)'
         $userFormArea.fadeOut(400);
+        // $(".conversation-title").css('filter', filterVal)
+        // $(".conversation-wrapper").css('filter', filterVal)
+        // $(".messaging-area").css('filter', filterVal)
       }
     });
     $username.val('');

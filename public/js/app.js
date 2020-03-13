@@ -74,7 +74,7 @@ const scrollToTop = () => {
 const openChat = () => {
   $('.chat-content').hide();
   $(window).scroll(function() {
-    if ($(this).scrollTop() > 2200) {
+    if ($(this).scrollTop() > 700) {
       $("#chatBtn").fadeIn();
     } else {
       $("#chatBtn").fadeOut();
